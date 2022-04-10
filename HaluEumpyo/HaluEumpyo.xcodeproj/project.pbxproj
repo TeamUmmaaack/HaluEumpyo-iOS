@@ -19,6 +19,7 @@
 		8368D7692801CF2200350621 /* HaluEumpyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7682801CF2200350621 /* HaluEumpyoUITests.swift */; };
 		8368D76B2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D76A2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift */; };
 		839306912802DD400088F2C6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306902802DD400088F2C6 /* BaseViewController.swift */; };
+		83930694280305C00088F2C6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 83930693280305C00088F2C6 /* .swiftlint.yml */; };
 		F46DBFE6020E2B5415E94C2D /* Pods_HaluEumpyo_HaluEumpyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F4F7F567663403373AF221 /* Pods_HaluEumpyo_HaluEumpyoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		8368D7682801CF2200350621 /* HaluEumpyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaluEumpyoUITests.swift; sourceTree = "<group>"; };
 		8368D76A2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaluEumpyoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		839306902802DD400088F2C6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		83930693280305C00088F2C6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyoTests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyoTests/Pods-HaluEumpyoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DCAD6091EE5451F173EEFA /* Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF1E4D5114F49750F5C1BEC9 /* Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,13 +105,13 @@
 				B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */,
 				15024EF1603E9D93FAFBB195 /* Pods-HaluEumpyoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		8368D73B2801CF1F00350621 = {
 			isa = PBXGroup;
 			children = (
+				83930693280305C00088F2C6 /* .swiftlint.yml */,
 				8368D7462801CF1F00350621 /* HaluEumpyo */,
 				8368D75D2801CF2200350621 /* HaluEumpyoTests */,
 				8368D7672801CF2200350621 /* HaluEumpyoUITests */,
@@ -295,6 +297,7 @@
 				8368D7412801CF1F00350621 /* Frameworks */,
 				8368D7422801CF1F00350621 /* Resources */,
 				756EB0E19D56AE938D88117C /* [CP] Embed Pods Frameworks */,
+				83930692280304A60088F2C6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -392,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83930694280305C00088F2C6 /* .swiftlint.yml in Resources */,
 				8368D7542801CF2100350621 /* LaunchScreen.storyboard in Resources */,
 				8368D7512801CF2100350621 /* Assets.xcassets in Resources */,
 				8368D74F2801CF1F00350621 /* Main.storyboard in Resources */,
@@ -492,6 +496,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HaluEumpyo/Pods-HaluEumpyo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		83930692280304A60088F2C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		950193F6B7025582031613B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
