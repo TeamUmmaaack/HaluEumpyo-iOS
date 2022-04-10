@@ -1,0 +1,50 @@
+PODS:
+  - FSCalendar (2.8.4)
+  - IQKeyboardManagerSwift (6.5.9)
+  - Kingfisher (7.2.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.0.1)
+  - SwiftLint (0.46.3)
+  - Then (2.7.0)
+
+DEPENDENCIES:
+  - FSCalendar
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - RxCocoa
+  - RxSwift
+  - SnapKit
+  - SwiftLint
+  - Then
+
+SPEC REPOS:
+  trunk:
+    - FSCalendar
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SwiftLint
+    - Then
+
+SPEC CHECKSUMS:
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
+  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+
+PODFILE CHECKSUM: 3e7f73e4d6c47827dbe62b1db9f0e71b48c06673
+
+COCOAPODS: 1.11.2

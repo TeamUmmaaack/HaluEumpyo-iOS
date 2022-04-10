@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HaluEumpyo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HaluEumpyo
+
+  pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'FSCalendar'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SnapKit'
+  pod 'Then'
+  pod 'Kingfisher'
+
+  target 'HaluEumpyoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'HaluEumpyoUITests' do
+    # Pods for testing
+  end
+
+end
