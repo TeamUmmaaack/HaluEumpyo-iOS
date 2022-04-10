@@ -20,6 +20,11 @@
 		8368D76B2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D76A2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift */; };
 		839306912802DD400088F2C6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306902802DD400088F2C6 /* BaseViewController.swift */; };
 		83930694280305C00088F2C6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 83930693280305C00088F2C6 /* .swiftlint.yml */; };
+		8393069B280322D50088F2C6 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83930696280322D50088F2C6 /* Pretendard-Bold.otf */; };
+		8393069C280322D50088F2C6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83930697280322D50088F2C6 /* Pretendard-SemiBold.otf */; };
+		8393069D280322D50088F2C6 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83930698280322D50088F2C6 /* Pretendard-Light.otf */; };
+		8393069E280322D50088F2C6 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83930699280322D50088F2C6 /* Pretendard-Regular.otf */; };
+		8393069F280322D50088F2C6 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8393069A280322D50088F2C6 /* Pretendard-Medium.otf */; };
 		F46DBFE6020E2B5415E94C2D /* Pods_HaluEumpyo_HaluEumpyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F4F7F567663403373AF221 /* Pods_HaluEumpyo_HaluEumpyoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +66,11 @@
 		8368D76A2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaluEumpyoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		839306902802DD400088F2C6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		83930693280305C00088F2C6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		83930696280322D50088F2C6 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		83930697280322D50088F2C6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		83930698280322D50088F2C6 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		83930699280322D50088F2C6 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		8393069A280322D50088F2C6 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyoTests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyoTests/Pods-HaluEumpyoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DCAD6091EE5451F173EEFA /* Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF1E4D5114F49750F5C1BEC9 /* Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +231,7 @@
 		8368D77D2801D42500350621 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				83930695280322130088F2C6 /* Font */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -273,6 +284,18 @@
 			children = (
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		83930695280322130088F2C6 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				83930696280322D50088F2C6 /* Pretendard-Bold.otf */,
+				83930698280322D50088F2C6 /* Pretendard-Light.otf */,
+				8393069A280322D50088F2C6 /* Pretendard-Medium.otf */,
+				83930699280322D50088F2C6 /* Pretendard-Regular.otf */,
+				83930697280322D50088F2C6 /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		88F829B2D2010126099AAA3B /* Frameworks */ = {
@@ -396,9 +419,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				83930694280305C00088F2C6 /* .swiftlint.yml in Resources */,
+				8393069B280322D50088F2C6 /* Pretendard-Bold.otf in Resources */,
 				8368D7542801CF2100350621 /* LaunchScreen.storyboard in Resources */,
+				8393069C280322D50088F2C6 /* Pretendard-SemiBold.otf in Resources */,
+				8393069D280322D50088F2C6 /* Pretendard-Light.otf in Resources */,
+				8393069E280322D50088F2C6 /* Pretendard-Regular.otf in Resources */,
 				8368D7512801CF2100350621 /* Assets.xcassets in Resources */,
 				8368D74F2801CF1F00350621 /* Main.storyboard in Resources */,
+				8393069F280322D50088F2C6 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
