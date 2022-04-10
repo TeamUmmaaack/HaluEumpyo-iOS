@@ -26,9 +26,11 @@ excluded:
 
 identifier_name:
   min_length:
-    error: 3
+    warning: 1
   excluded:
     - id
+    - URL
+    - GlobalAPIKey
 
 force_cast: warning
     
