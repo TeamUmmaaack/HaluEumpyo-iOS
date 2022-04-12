@@ -30,6 +30,7 @@
 		839306A52803290A0088F2C6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A42803290A0088F2C6 /* UIColor+Extension.swift */; };
 		839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A628032D820088F2C6 /* UIView+Extension.swift */; };
 		839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A828032DEC0088F2C6 /* Date+Extension.swift */; };
+		8397E5E62805C7A700EA2EAF /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */; };
 		F46DBFE6020E2B5415E94C2D /* Pods_HaluEumpyo_HaluEumpyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F4F7F567663403373AF221 /* Pods_HaluEumpyo_HaluEumpyoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		839306A42803290A0088F2C6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		839306A628032D820088F2C6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		839306A828032DEC0088F2C6 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 		B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyoTests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyoTests/Pods-HaluEumpyoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DCAD6091EE5451F173EEFA /* Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF1E4D5114F49750F5C1BEC9 /* Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		8368D77C2801D41300350621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				839306A52803290A0088F2C6 /* UIColor+Extension.swift in Sources */,
+				8397E5E62805C7A700EA2EAF /* ImageLiteral.swift in Sources */,
 				839306A3280328FA0088F2C6 /* UIFont+Extension.swift in Sources */,
 				839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */,
 				8368D74C2801CF1F00350621 /* ViewController.swift in Sources */,
