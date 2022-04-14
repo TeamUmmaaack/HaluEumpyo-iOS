@@ -98,45 +98,45 @@ final class DiaryListViewController: BaseViewController {
         self.present(modalDateView, animated: true, completion: nil)
     }
     
-    func setContentsList() {
-        contents.append(contentsOf: [
-            Content(id: 1,
-                    day: "WED",
-                    date: 4,
-                    content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
-                    music: "Fiona Apple - Fast As You Can"),
-            
-                Content(id: 1,
-                        day: "WED",
-                        date: 4,
-                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
-                        music: "Fiona Apple - Fast As You Can"),
-            
-                Content(id: 1,
-                        day: "WED",
-                        date: 4,
-                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
-                        music: "Fiona Apple - Fast As You Can"),
-            
-                Content(id: 1,
-                        day: "WED",
-                        date: 4,
-                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
-                        music: "Fiona Apple - Fast As You Can"),
-            
-                Content(id: 1,
-                        day: "WED",
-                        date: 4,
-                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
-                        music: "Fiona Apple - Fast As You Can"),
-            
-                Content(id: 1,
-                        day: "WED",
-                        date: 4,
-                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
-                        music: "Fiona Apple - Fast As You Can")
-        ])
-    }
+//    func setContentsList() {
+//        contents.append(contentsOf: [
+//            Content(id: 1,
+//                    day: "WED",
+//                    date: 4,
+//                    content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
+//                    music: "Fiona Apple - Fast As You Can"),
+//            
+//                Content(id: 1,
+//                        day: "WED",
+//                        date: 4,
+//                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
+//                        music: "Fiona Apple - Fast As You Can"),
+//            
+//                Content(id: 1,
+//                        day: "WED",
+//                        date: 4,
+//                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
+//                        music: "Fiona Apple - Fast As You Can"),
+//            
+//                Content(id: 1,
+//                        day: "WED",
+//                        date: 4,
+//                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
+//                        music: "Fiona Apple - Fast As You Can"),
+//            
+//                Content(id: 1,
+//                        day: "WED",
+//                        date: 4,
+//                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
+//                        music: "Fiona Apple - Fast As You Can"),
+//            
+//                Content(id: 1,
+//                        day: "WED",
+//                        date: 4,
+//                        content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩들이 다 들고가서 없었다. 근데 마지막에서 찾았지 앗싸 신난다~",
+//                        music: "Fiona Apple - Fast As You Can")
+//        ])
+//    }
     
     private func bind() {
         backButton.rx.tap

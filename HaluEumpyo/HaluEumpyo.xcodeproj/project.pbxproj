@@ -10,6 +10,8 @@
 		01A8996A4E2401E81C3C8980 /* Pods_HaluEumpyoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */; };
 		12E5CD6E003F5782BE772AAF /* Pods_HaluEumpyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */; };
 		831FAFCE28070AA600040412 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */; };
+		831FAFD128070D2D00040412 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD028070D2D00040412 /* Content.swift */; };
+		831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD228073DEB00040412 /* DatePickerViewController.swift */; };
 		831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD428074F3400040412 /* ModalPresentationController.swift */; };
 		8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7472801CF1F00350621 /* AppDelegate.swift */; };
 		8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7492801CF1F00350621 /* SceneDelegate.swift */; };
@@ -32,8 +34,16 @@
 		839306A52803290A0088F2C6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A42803290A0088F2C6 /* UIColor+Extension.swift */; };
 		839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A628032D820088F2C6 /* UIView+Extension.swift */; };
 		839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A828032DEC0088F2C6 /* Date+Extension.swift */; };
+		8397E5E228056F5D00EA2EAF /* AppDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E5E128056F5D00EA2EAF /* AppDate.swift */; };
+		8397E5E428059F5200EA2EAF /* DiaryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E5E328059F5200EA2EAF /* DiaryListCollectionViewCell.swift */; };
 		8397E5E62805C7A700EA2EAF /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */; };
+		839D71D228052DA4005D7C48 /* DrawerCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D71D128052DA4005D7C48 /* DrawerCollectionReusableView.swift */; };
+		83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A7F92804A29C00208FD8 /* HomeTopView.swift */; };
+		83DF9C20280463330042696B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */; };
+		83DF9C2528046B4F0042696B /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C2428046B4F0042696B /* DiaryListViewController.swift */; };
+		83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C26280473FB0042696B /* HomeViewController.swift */; };
 		83E329A128085922000A5786 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E329A028085922000A5786 /* CALayer+Extensions.swift */; };
+		83E329A328085F92000A5786 /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E329A228085F92000A5786 /* DiaryListViewModel.swift */; };
 		F46DBFE6020E2B5415E94C2D /* Pods_HaluEumpyo_HaluEumpyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F4F7F567663403373AF221 /* Pods_HaluEumpyo_HaluEumpyoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +71,8 @@
 		4829F18D7CEB857A3F1163E1 /* Pods-HaluEumpyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo/Pods-HaluEumpyo.debug.xcconfig"; sourceTree = "<group>"; };
 		7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		831FAFD028070D2D00040412 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		831FAFD228073DEB00040412 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		831FAFD428074F3400040412 /* ModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationController.swift; sourceTree = "<group>"; };
 		8368D7442801CF1F00350621 /* HaluEumpyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaluEumpyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D7472801CF1F00350621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,8 +99,16 @@
 		839306A42803290A0088F2C6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		839306A628032D820088F2C6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		839306A828032DEC0088F2C6 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		8397E5E128056F5D00EA2EAF /* AppDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDate.swift; sourceTree = "<group>"; };
+		8397E5E328059F5200EA2EAF /* DiaryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListCollectionViewCell.swift; sourceTree = "<group>"; };
 		8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
+		839D71D128052DA4005D7C48 /* DrawerCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerCollectionReusableView.swift; sourceTree = "<group>"; };
+		83B2A7F92804A29C00208FD8 /* HomeTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopView.swift; sourceTree = "<group>"; };
+		83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		83DF9C2428046B4F0042696B /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
+		83DF9C26280473FB0042696B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83E329A028085922000A5786 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
+		83E329A228085F92000A5786 /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
 		B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyoTests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyoTests/Pods-HaluEumpyoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DCAD6091EE5451F173EEFA /* Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF1E4D5114F49750F5C1BEC9 /* Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +154,14 @@
 				15024EF1603E9D93FAFBB195 /* Pods-HaluEumpyoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		831FAFCF28070D2100040412 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				831FAFD028070D2D00040412 /* Content.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8368D73B2801CF1F00350621 = {
@@ -216,6 +244,7 @@
 		8368D7792801D3CC00350621 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				831FAFCF28070D2100040412 /* Model */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -274,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				839306902802DD400088F2C6 /* BaseViewController.swift */,
+				83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */,
+				8397E5E128056F5D00EA2EAF /* AppDate.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -281,6 +312,9 @@
 		8368D7802801D80100350621 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				83B2A7F72804A1F200208FD8 /* View */,
+				83B2A7F82804A1F800208FD8 /* ViewModel */,
+				83DF9C26280473FB0042696B /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -302,6 +336,8 @@
 		8368D7832801D92800350621 /* DiaryList */ = {
 			isa = PBXGroup;
 			children = (
+				83DF9C22280463A20042696B /* View */,
+				83DF9C21280463960042696B /* ViewModel */,
 			);
 			path = DiaryList;
 			sourceTree = "<group>";
@@ -323,6 +359,48 @@
 				83930697280322D50088F2C6 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		83B2A7F72804A1F200208FD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83B2A7F92804A29C00208FD8 /* HomeTopView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		83B2A7F82804A1F800208FD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83DF9C21280463960042696B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				83E329A228085F92000A5786 /* DiaryListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83DF9C22280463A20042696B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83DF9C23280463A80042696B /* Cell */,
+				83DF9C2428046B4F0042696B /* DiaryListViewController.swift */,
+				831FAFD228073DEB00040412 /* DatePickerViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		83DF9C23280463A80042696B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				839D71D128052DA4005D7C48 /* DrawerCollectionReusableView.swift */,
+				8397E5E328059F5200EA2EAF /* DiaryListCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		88F829B2D2010126099AAA3B /* Frameworks */ = {
@@ -604,13 +682,23 @@
 				839306A3280328FA0088F2C6 /* UIFont+Extension.swift in Sources */,
 				839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */,
 				8368D74C2801CF1F00350621 /* ViewController.swift in Sources */,
+				83DF9C2528046B4F0042696B /* DiaryListViewController.swift in Sources */,
 				83E329A128085922000A5786 /* CALayer+Extensions.swift in Sources */,
 				839306912802DD400088F2C6 /* BaseViewController.swift in Sources */,
+				83DF9C20280463330042696B /* BaseCollectionViewCell.swift in Sources */,
 				8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */,
+				8397E5E428059F5200EA2EAF /* DiaryListCollectionViewCell.swift in Sources */,
+				83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */,
 				839306A1280328D50088F2C6 /* UIViewController+Rx.swift in Sources */,
+				83E329A328085F92000A5786 /* DiaryListViewModel.swift in Sources */,
 				831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */,
+				839D71D228052DA4005D7C48 /* DrawerCollectionReusableView.swift in Sources */,
+				831FAFD128070D2D00040412 /* Content.swift in Sources */,
 				8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */,
+				831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */,
 				839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */,
+				83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */,
+				8397E5E228056F5D00EA2EAF /* AppDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

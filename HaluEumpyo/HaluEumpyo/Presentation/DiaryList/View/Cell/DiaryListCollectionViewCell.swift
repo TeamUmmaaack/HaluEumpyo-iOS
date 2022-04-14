@@ -145,7 +145,6 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
     }
     
     func setData(content: Content) {
-        print("나 불려짐")
         contentId = content.id
         noteImageView.image = ImageLiteral.imgEmotionJoy
         dateLabel.text = "\(content.date)"
