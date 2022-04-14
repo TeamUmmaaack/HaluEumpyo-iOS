@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01A8996A4E2401E81C3C8980 /* Pods_HaluEumpyoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */; };
 		12E5CD6E003F5782BE772AAF /* Pods_HaluEumpyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */; };
+		831FAFCE28070AA600040412 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */; };
+		831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD428074F3400040412 /* ModalPresentationController.swift */; };
 		8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7472801CF1F00350621 /* AppDelegate.swift */; };
 		8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7492801CF1F00350621 /* SceneDelegate.swift */; };
 		8368D74C2801CF1F00350621 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D74B2801CF1F00350621 /* ViewController.swift */; };
@@ -31,6 +33,7 @@
 		839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A628032D820088F2C6 /* UIView+Extension.swift */; };
 		839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306A828032DEC0088F2C6 /* Date+Extension.swift */; };
 		8397E5E62805C7A700EA2EAF /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */; };
+		83E329A128085922000A5786 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E329A028085922000A5786 /* CALayer+Extensions.swift */; };
 		F46DBFE6020E2B5415E94C2D /* Pods_HaluEumpyo_HaluEumpyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F4F7F567663403373AF221 /* Pods_HaluEumpyo_HaluEumpyoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,8 @@
 		252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4829F18D7CEB857A3F1163E1 /* Pods-HaluEumpyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo/Pods-HaluEumpyo.debug.xcconfig"; sourceTree = "<group>"; };
 		7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		831FAFD428074F3400040412 /* ModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationController.swift; sourceTree = "<group>"; };
 		8368D7442801CF1F00350621 /* HaluEumpyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaluEumpyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D7472801CF1F00350621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8368D7492801CF1F00350621 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +88,7 @@
 		839306A628032D820088F2C6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		839306A828032DEC0088F2C6 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		8397E5E52805C7A700EA2EAF /* ImageLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
+		83E329A028085922000A5786 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyoTests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyoTests/Pods-HaluEumpyoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DCAD6091EE5451F173EEFA /* Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BF1E4D5114F49750F5C1BEC9 /* Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo-HaluEumpyoUITests/Pods-HaluEumpyo-HaluEumpyoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +263,9 @@
 				839306A42803290A0088F2C6 /* UIColor+Extension.swift */,
 				839306A628032D820088F2C6 /* UIView+Extension.swift */,
 				839306A828032DEC0088F2C6 /* Date+Extension.swift */,
+				831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */,
+				831FAFD428074F3400040412 /* ModalPresentationController.swift */,
+				83E329A028085922000A5786 /* CALayer+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -589,14 +598,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831FAFCE28070AA600040412 /* UICollectionView+Extension.swift in Sources */,
 				839306A52803290A0088F2C6 /* UIColor+Extension.swift in Sources */,
 				8397E5E62805C7A700EA2EAF /* ImageLiteral.swift in Sources */,
 				839306A3280328FA0088F2C6 /* UIFont+Extension.swift in Sources */,
 				839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */,
 				8368D74C2801CF1F00350621 /* ViewController.swift in Sources */,
+				83E329A128085922000A5786 /* CALayer+Extensions.swift in Sources */,
 				839306912802DD400088F2C6 /* BaseViewController.swift in Sources */,
 				8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */,
 				839306A1280328D50088F2C6 /* UIViewController+Rx.swift in Sources */,
+				831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */,
 				8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */,
 				839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */,
 			);
