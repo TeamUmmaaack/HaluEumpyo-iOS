@@ -18,6 +18,10 @@ extension UIColor {
         return .init(red: 0.22, green: 0.21, blue: 0.21, alpha: 1.0)
     }
     
+    static func haluEumpyo_background() -> UIColor {
+        return .init(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+    }
+    
     static func gray001() -> UIColor {
         return .init(red: 0.46, green: 0.5, blue: 0.55, alpha: 1.0)
     }
