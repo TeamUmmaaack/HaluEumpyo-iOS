@@ -15,6 +15,7 @@ public enum ImageLiteral {
     public static let btnSend: UIImage = UIImage(named: "btn_send")!
     public static let btnSetting: UIImage = UIImage(named: "btn_setting")!
     public static let btnSendActivated: UIImage = UIImage(named: "btn_send_activated")!
+    public static let btnClose: UIImage = UIImage(named: "btn_close")!
     
     public static let bgEmotionAngry: UIImage = UIImage(named: "bg_angry")!
     public static let bgEmotionFear: UIImage = UIImage(named: "bg_fear")!
