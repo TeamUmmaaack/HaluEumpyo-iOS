@@ -44,8 +44,8 @@ class AppDate {
               year >= 0 && year <= 9999,
               month >= 1 && month <= 12,
               day >= 1 && day <= 31 else {
-            return
-        }
+                  return
+              }
         
         self.init(year: year, month: month, day: day)
     }
@@ -85,7 +85,7 @@ class AppDate {
         guard let weekday = self.weekday else { return "" }
         return weekday
     }
-
+    
     func getDayToString() -> String {
         return "\(self.getDay())"
     }
@@ -96,6 +96,11 @@ class AppDate {
     
     func getYearToString() -> String {
         return "\(self.getYear())"
+    }
+    
+    func getdayOfWeek() -> String {
+        guard let dayOfWeek = Int(self.getDateComponent(with: "EEEE")) else { return "" }
+        return "\(dayOfWeek)"
     }
     
     private func getDateComponent(with format: String) -> String {
