@@ -11,7 +11,6 @@ import SnapKit
 
 final class HomeTopView: UIView {    
     // MARK: - Property
-    
     let leftButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 28, height: 28)))
         button.setImage(UIImage(named: "btn_archivebox"), for: .normal)
@@ -24,6 +23,10 @@ final class HomeTopView: UIView {
         return button
     }()
     
+    deinit {
+        print("deinit : \(self)")
+    }
+   
     // MARK: - init
     
     override init(frame: CGRect) {

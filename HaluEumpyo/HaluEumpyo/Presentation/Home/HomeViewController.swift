@@ -16,17 +16,9 @@ final class HomeViewController: BaseViewController {
 
     private let topView = HomeTopView()
     
-    private lazy var writeButton: UIButton = {
+    private let writeButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 64, height: 64)))
-        button.backgroundColor = .red
         button.setImage(UIImage(named: "ic_plus"), for: .normal)
-        // 둥근 모서리 및 그림자 생성 코드
-        button.layer.cornerRadius = 20
-        button.clipsToBounds = true
-        button.layer.shadowColor = UIColor.gray.cgColor
-        button.layer.shadowOpacity = 1.0
-        button.layer.shadowOffset = CGSize.zero
-        button.layer.shadowRadius = 6
         return button
     }()
     
@@ -49,10 +41,17 @@ final class HomeViewController: BaseViewController {
     
     private func bind() {
         topView.leftButton.rx.tap
-            .asDriver()
-            .drive(onNext: { [weak self] in
+            .bind(onNext: { [weak self] in
                 let diaryListViewController = DiaryListViewController()
                 self?.navigationController?.pushViewController(diaryListViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        writeButton.rx.tap
+            .bind(onNext: { [weak self] in
+                let writeDiaryViewController = WriteDiaryViewController()
+                writeDiaryViewController.modalPresentationStyle = .overFullScreen
+                self?.navigationController?.topViewController?.present(writeDiaryViewController, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
     }
