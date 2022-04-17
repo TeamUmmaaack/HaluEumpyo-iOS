@@ -26,6 +26,8 @@ final class WebViewController: BaseViewController {
    
     private var viewModel: WebViewModel
     
+    let webConfiguration = WKWebViewConfiguration()
+    
     private let navigationBackBarButton: UIBarButtonItem = {
         let backButtonImage = ImageLiteral.btnBack
         let navigationBackBarButton = UIBarButtonItem(image: backButtonImage,
@@ -40,7 +42,7 @@ final class WebViewController: BaseViewController {
         textField.frame = CGRect(origin: .zero,
                                  size: CGSize(width: Size.urlTextFieldWidth,
                                               height: Size.urlTextFieldHeight))
-        textField.backgroundColor = .gray001()
+        textField.backgroundColor = .lightGray
         textField.layer.cornerRadius = 4
         textField.font = .pretendard(size: 16)
         textField.autocapitalizationType = .none
@@ -51,7 +53,7 @@ final class WebViewController: BaseViewController {
     }()
     
     private let reloadUrlBarButton: UIBarButtonItem = {
-        let reloadImage = UIImage(named: "arrow.clockwise")
+        let reloadImage = UIImage(systemName: "arrow.clockwise")
         let reloadUrlBarButton = UIBarButtonItem(image: reloadImage,
                                                  style: .plain,
                                                  target: nil,
@@ -70,9 +72,9 @@ final class WebViewController: BaseViewController {
     // MARK: - init
     
     init(urlString: String) {
-        super.init()
         viewModel = WebViewModel(urlString: urlString)
-        self.hidesBottomBarWhenPushed = true
+        super.init()
+        webConfiguration.allowsInlineMediaPlayback = true
     }
 
     @available(*, unavailable)
@@ -193,4 +195,3 @@ extension WebViewController: WKNavigationDelegate {
         urlTextField.text = url
     }
 }
-
