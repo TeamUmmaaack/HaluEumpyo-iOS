@@ -138,12 +138,7 @@ final class WriteDiaryViewController: BaseViewController {
             $0.top.equalTo(dateLabel.snp.bottom).offset(5)
             $0.leading.trailing.equalToSuperview()
         }
-//        contextView.snp.makeConstraints {
-//            $0.top.equalTo(dayLabel.snp.bottom).offset(10)
-//            $0.leading.equalToSuperview().offset(16)
-//            $0.trailing.equalToSuperview().offset(-16)
-//            $0.bottom.equalToSuperview().offset(-10)
-//        }
+        
         contentTextView.snp.makeConstraints {
             $0.top.equalTo(dayLabel.snp.bottom).offset(28)
             $0.leading.equalToSuperview().offset(16)

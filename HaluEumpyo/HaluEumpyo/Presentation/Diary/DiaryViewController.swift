@@ -10,6 +10,9 @@ import UIKit
 
 class DiaryViewController: BaseViewController {
     // MARK: - Property
+    private var songTitle: String?
+    private var artistName: String?
+    
     private let backButton = UIButton().then {
         $0.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         $0.setImage(ImageLiteral.btnBack, for: .normal)
@@ -36,7 +39,7 @@ class DiaryViewController: BaseViewController {
         $0.backgroundColor = UIColor.haluEumpyo_background()
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
-        $0.applyZeplinShadow(alpha: 0.06, x: 0, y: 4, blur: 10, spread: 0)
+        $0.applyZeplinShadow(alpha: 0.1, x: 0, y: 4, blur: 10, spread: 0)
     }
     
     private let albumCoverView = UIImageView().then {
@@ -67,6 +70,8 @@ class DiaryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        recommendMusicContainerView.addGestureRecognizer(tapGesture)
     }
     
     override func configUI() {
@@ -76,7 +81,7 @@ class DiaryViewController: BaseViewController {
     
     // MARK: - inti
     init(contentId: Int?, emotion: Int, content: String, music: String, day: String, date: Int) {
-        super.init(nibName: nil, bundle: nil)
+        super.init()
         switch emotion {
         case 0:
             noteImageView.image = ImageLiteral.imgEmotionJoy
@@ -100,6 +105,8 @@ class DiaryViewController: BaseViewController {
         contentTextView.text = content
         songTitleLabel.text = music.components(separatedBy: "-")[0]
         artistLabel.text = music.components(separatedBy: "-")[1]
+        self.songTitle = music.components(separatedBy: "-")[0]
+        self.artistName = music.components(separatedBy: "-")[1]
     }
     
     required init?(coder: NSCoder) {
@@ -163,6 +170,20 @@ class DiaryViewController: BaseViewController {
         }
     }
     
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        print("클릭됨")
+        let urlString = makeURL(artistName: artistName ?? "", songtitle: songTitle ?? "")
+        let webViewController = WebViewController(urlString: "\(urlString)")
+        self.navigationController?.pushViewController(webViewController, animated: true)
+    }
+    
+    private func makeURL(artistName: String, songtitle: String) -> String {
+        let query = "\(artistName)+\(songtitle)"
+        let url = query.replacingOccurrences(of: " ", with: "+")
+        print("수정된 url: \(url)")
+        return url
+    }
+    
     // MARK: - func
     private func bind() {
         backButton.rx.tap
@@ -170,12 +191,11 @@ class DiaryViewController: BaseViewController {
             .drive(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)        
     }
     
     private func setupNavigationBar() {
         setupBaseNavigationBar(backgroundColor: .white, titleColor: .haluEmpyo_black(), isTranslucent: false, tintColor: .haluEmpyo_black())
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
-    
 }
