@@ -26,6 +26,7 @@
 		8371B4E3280A1E7100A96D55 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371B4E2280A1E7100A96D55 /* DiaryViewController.swift */; };
 		8372F4C2280D96DF0095AE29 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F4C1280D96DF0095AE29 /* CustomActivityIndicator.swift */; };
 		8372F4C4280D98DC0095AE29 /* RecommendMusicViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F4C3280D98DC0095AE29 /* RecommendMusicViewContorller.swift */; };
+		8372F4C8280DFA540095AE29 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */; };
 		839306912802DD400088F2C6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306902802DD400088F2C6 /* BaseViewController.swift */; };
 		83930694280305C00088F2C6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 83930693280305C00088F2C6 /* .swiftlint.yml */; };
 		8393069B280322D50088F2C6 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83930696280322D50088F2C6 /* Pretendard-Bold.otf */; };
@@ -98,6 +99,7 @@
 		8371B4E2280A1E7100A96D55 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		8372F4C1280D96DF0095AE29 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		8372F4C3280D98DC0095AE29 /* RecommendMusicViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMusicViewContorller.swift; sourceTree = "<group>"; };
+		8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		839306902802DD400088F2C6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		83930693280305C00088F2C6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		83930696280322D50088F2C6 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */,
 				831FAFD428074F3400040412 /* ModalPresentationController.swift */,
 				83E329A028085922000A5786 /* CALayer+Extensions.swift */,
+				8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				839D71D228052DA4005D7C48 /* DrawerCollectionReusableView.swift in Sources */,
 				831FAFD128070D2D00040412 /* Content.swift in Sources */,
 				8372F4C2280D96DF0095AE29 /* CustomActivityIndicator.swift in Sources */,
+				8372F4C8280DFA540095AE29 /* UILabel+Extension.swift in Sources */,
 				8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */,
 				831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */,
 				8371B4E3280A1E7100A96D55 /* DiaryViewController.swift in Sources */,
