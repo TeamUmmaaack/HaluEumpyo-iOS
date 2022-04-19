@@ -24,6 +24,9 @@
 		8368D76B2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D76A2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift */; };
 		8371B4E12809FD8B00A96D55 /* WriteDiaryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371B4E02809FD8B00A96D55 /* WriteDiaryTopView.swift */; };
 		8371B4E3280A1E7100A96D55 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8371B4E2280A1E7100A96D55 /* DiaryViewController.swift */; };
+		8372F4C2280D96DF0095AE29 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F4C1280D96DF0095AE29 /* CustomActivityIndicator.swift */; };
+		8372F4C4280D98DC0095AE29 /* RecommendMusicViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F4C3280D98DC0095AE29 /* RecommendMusicViewContorller.swift */; };
+		8372F4C8280DFA540095AE29 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */; };
 		839306912802DD400088F2C6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839306902802DD400088F2C6 /* BaseViewController.swift */; };
 		83930694280305C00088F2C6 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 83930693280305C00088F2C6 /* .swiftlint.yml */; };
 		8393069B280322D50088F2C6 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83930696280322D50088F2C6 /* Pretendard-Bold.otf */; };
@@ -94,6 +97,9 @@
 		8368D76A2801CF2200350621 /* HaluEumpyoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaluEumpyoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8371B4E02809FD8B00A96D55 /* WriteDiaryTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryTopView.swift; sourceTree = "<group>"; };
 		8371B4E2280A1E7100A96D55 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		8372F4C1280D96DF0095AE29 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		8372F4C3280D98DC0095AE29 /* RecommendMusicViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendMusicViewContorller.swift; sourceTree = "<group>"; };
+		8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		839306902802DD400088F2C6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		83930693280305C00088F2C6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		83930696280322D50088F2C6 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -306,6 +312,7 @@
 				831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */,
 				831FAFD428074F3400040412 /* ModalPresentationController.swift */,
 				83E329A028085922000A5786 /* CALayer+Extensions.swift */,
+				8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +350,8 @@
 		8368D7822801D8ED00350621 /* RecommendMusic */ = {
 			isa = PBXGroup;
 			children = (
+				83DE15B6280C7DBA0038D433 /* View */,
+				8372F4C3280D98DC0095AE29 /* RecommendMusicViewContorller.swift */,
 			);
 			path = RecommendMusic;
 			sourceTree = "<group>";
@@ -421,6 +430,14 @@
 				83D7CA81280B321000E49B8D /* WebViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83DE15B6280C7DBA0038D433 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8372F4C1280D96DF0095AE29 /* CustomActivityIndicator.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		83DF9C21280463960042696B /* ViewModel */ = {
@@ -745,9 +762,12 @@
 				831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */,
 				839D71D228052DA4005D7C48 /* DrawerCollectionReusableView.swift in Sources */,
 				831FAFD128070D2D00040412 /* Content.swift in Sources */,
+				8372F4C2280D96DF0095AE29 /* CustomActivityIndicator.swift in Sources */,
+				8372F4C8280DFA540095AE29 /* UILabel+Extension.swift in Sources */,
 				8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */,
 				831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */,
 				8371B4E3280A1E7100A96D55 /* DiaryViewController.swift in Sources */,
+				8372F4C4280D98DC0095AE29 /* RecommendMusicViewContorller.swift in Sources */,
 				839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */,
 				83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */,
 				8397E5E228056F5D00EA2EAF /* AppDate.swift in Sources */,

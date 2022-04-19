@@ -18,6 +18,18 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
+    private let dateContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    private let contentContainerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.pretendard(size: 20)
@@ -75,16 +87,6 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
         return stack
     }()
     
-    func setLineDot(view: UIView, color: String){
-        let borderLayer = CAShapeLayer()
-        borderLayer.strokeColor = UIColor(named: color)?.cgColor
-        borderLayer.lineDashPattern = [2, 2]
-        borderLayer.frame = view.bounds
-        borderLayer.fillColor = nil
-        borderLayer.path = UIBezierPath(rect: view.bounds).cgPath
-        view.layer.addSublayer(borderLayer)
-    }
-    
     override func prepareForReuse() {
         backgroundColor = .white
         noteImageView.image = nil
@@ -96,6 +98,7 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        seperatorView.makeDashedBorderLine(color: .gray003(), strokeLength: 5, gapLength: 2, width: 1, orientation: .horizontal)
     }
     
     required init?(coder: NSCoder) {
@@ -103,8 +106,10 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func setUpLayoutConstraint() {
-        contentView.addSubviews([containerView, dateLabel, dayLabel, seperatorView, contentLabel, recommendedSongLabel, noteImageView, vStackView])
+        contentView.addSubviews([containerView, vStackView, seperatorView, contentContainerView])
 
+        contentContainerView.addSubviews([contentLabel, recommendedSongLabel, noteImageView])
+        
         vStackView.addArrangedSubview(dateLabel)
         vStackView.addArrangedSubview(dayLabel)
         
@@ -116,6 +121,7 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
             $0.top.equalTo(contentView).offset(20)
             $0.leading.equalTo(contentView).offset(12)
             $0.bottom.equalTo(contentView).inset(18)
+            $0.width.equalTo(73)
         }
         
         seperatorView.snp.makeConstraints {
@@ -124,15 +130,21 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
             $0.width.equalTo(1)
         }
         
+        contentContainerView.snp.makeConstraints {
+            $0.top.bottom.equalTo(contentView)
+            $0.leading.equalTo(seperatorView.snp.trailing)
+            $0.trailing.equalTo(contentView)
+        }
+        
         contentLabel.snp.makeConstraints {
             $0.top.equalTo(contentView).offset(12)
-            $0.leading.equalTo(seperatorView.snp.trailing).offset(12)
-            $0.trailing.equalTo(contentView).inset(12)
+            $0.leading.equalTo(contentContainerView.snp.leading).offset(12)
+            $0.trailing.equalTo(contentView).offset(-12)
         }
         
         recommendedSongLabel.snp.makeConstraints {
             $0.bottom.equalTo(contentView).inset(12)
-            $0.leading.equalTo(seperatorView.snp.trailing).offset(12)
+            $0.leading.equalTo(contentContainerView.snp.leading).offset(12)
             $0.trailing.equalTo(noteImageView.snp.leading).offset(12)
         }
         

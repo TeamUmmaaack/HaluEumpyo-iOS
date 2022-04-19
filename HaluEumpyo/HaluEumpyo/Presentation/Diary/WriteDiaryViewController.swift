@@ -49,10 +49,11 @@ final class WriteDiaryViewController: BaseViewController {
     
     override func configUI() {
         super.configUI()
+        view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     private func setInitialDate() {
@@ -73,6 +74,17 @@ final class WriteDiaryViewController: BaseViewController {
     }
     
     private func bind() {
+        topView.rightButton.rx.tap
+            .bind(onNext: { [weak self] in
+                CustomActivityIndicator.shared.show()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    CustomActivityIndicator.shared.hide()
+                    let recommendMusicViewController = RecommendMusicViewController()
+                    self?.navigationController?.pushViewController(recommendMusicViewController, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+        
         contentTextView.rx.didBeginEditing
             .asDriver()
             .compactMap { [weak self] _ in self?.contentTextView.text }
@@ -100,7 +112,8 @@ final class WriteDiaryViewController: BaseViewController {
         topView.leftButton.rx.tap
             .asDriver()
             .drive(onNext: { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
+                self?.navigationController?.popViewController(animated: true)
+//                self?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         
@@ -145,5 +158,11 @@ final class WriteDiaryViewController: BaseViewController {
             $0.trailing.equalToSuperview().offset(-16)
             $0.bottom.equalToSuperview()
         }
+    }
+}
+
+extension WriteDiaryViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        ModalPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
