@@ -35,4 +35,5 @@ public enum ImageLiteral {
     
     public static let icPlay: UIImage = UIImage(named: "ic_play")!
     public static let icPlus: UIImage = UIImage(named: "ic_plus")!
+    public static let imgModalCircle: UIImage = UIImage(named: "img_modal_circle")!
 }
