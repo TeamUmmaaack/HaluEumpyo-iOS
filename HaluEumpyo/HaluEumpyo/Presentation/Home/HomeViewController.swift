@@ -47,13 +47,19 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+//        writeButton.rx.tap
+//            .bind(onNext: { [weak self] in
+//                let writeDiaryViewController = WriteDiaryViewController()
+//                writeDiaryViewController.modalPresentationStyle = .overFullScreen
+//                self?.navigationController?.topViewController?.present(writeDiaryViewController, animated: true, completion: nil)
+//            })
+//            .disposed(by: disposeBag)
         writeButton.rx.tap
             .bind(onNext: { [weak self] in
-                let writeDiaryViewController = WriteDiaryViewController()
-                writeDiaryViewController.modalPresentationStyle = .overFullScreen
-                self?.navigationController?.topViewController?.present(writeDiaryViewController, animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
+            let writeDiaryViewController = WriteDiaryViewController()
+            self?.navigationController?.pushViewController(writeDiaryViewController, animated: true)
+        })
+        .disposed(by: disposeBag)
     }
     
     override func setUpLayoutConstraint() {
