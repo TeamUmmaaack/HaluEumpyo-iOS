@@ -15,6 +15,7 @@ target 'HaluEumpyo' do
   pod 'SnapKit'
   pod 'Then'
   pod 'Kingfisher'
+  pod 'FSCalendar'
 
   target 'HaluEumpyoTests' do
     inherit! :search_paths
