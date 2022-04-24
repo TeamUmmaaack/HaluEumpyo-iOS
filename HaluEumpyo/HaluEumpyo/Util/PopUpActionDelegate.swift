@@ -8,7 +8,6 @@
 import UIKit
 
 protocol PopUpActionProtocol: AnyObject {
-    func cancelButtonDidTap(_ button: UIButton)
     func confirmButtonDidTap(_ button: UIButton)
     func confirmButtonDidTap(_ button: UIButton, textInfo: String)
 }
