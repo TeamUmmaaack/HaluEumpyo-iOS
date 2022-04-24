@@ -23,6 +23,13 @@ final class HomeViewController: BaseViewController {
        return calendar
     }()
     
+    private let yearLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.haluEmpyo_black()
+        label.font = UIFont.pretendard(.regular, size: 20)
+        return label
+    }()
+    
     private let writeButton: UIButton = {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 64, height: 64)))
         button.setImage(UIImage(named: "ic_plus"), for: .normal)
@@ -39,17 +46,33 @@ final class HomeViewController: BaseViewController {
         return view
     }()
     
+    private var joyList: [String] = []
+    private var sadList: [String] = []
+    private var angryList: [String] = []
+    private var scaredList: [String] = []
+    private var sosoList: [String] = []
+    
+    //Used by one of the example methods
+    var datesWithEvent = ["2022-04-01", "2022-04-06", "2022-04-12", "2022-04-23"]
+
+    var selectedDate: String = Date().toStringTypeOne
+    
+    private let feedbackPopUp = FeedBackPopUpViewController()
+    
     let gregorian = Calendar(identifier: .gregorian)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
         setDelegation()
+        setDiaryContents()
+        setCalendar()
         setCalendarStyle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setupBarHidden()
+  
     }
     
     private func setupBarHidden() {
@@ -67,6 +90,12 @@ final class HomeViewController: BaseViewController {
                 self?.navigationController?.pushViewController(diaryListViewController, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        topView.rightButton.rx.tap
+            .bind(onNext: { [weak self] in
+                let settingViewController = SettingViewController()
+                self?.navigationController?.pushViewController(settingViewController, animated: true)
+            }).disposed(by: disposeBag)
         
         writeButton.rx.tap
             .bind(onNext: { [weak self] in
@@ -100,18 +129,26 @@ final class HomeViewController: BaseViewController {
         }
         
         calendar.snp.makeConstraints {
-            $0.top.equalTo(topView.snp.bottom).offset(5)
+            $0.top.equalTo(topView.snp.bottom).offset(15)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
-            $0.bottom.equalTo(buttonView.snp.top).offset(-10)
+            $0.bottom.equalTo(buttonView.snp.top).offset(-60)
         }
+    }
+    
+    func setDiaryContents() {
+        joyList.append(contentsOf: ["2022-04-06", "2022-04-11", "2022-04-12"])
+        sadList.append(contentsOf: ["2022-04-08"])
+        angryList.append(contentsOf: ["2022-04-15", "2022-4-20"])
+        scaredList.append(contentsOf: ["2022-04-19"])
+        sosoList.append(contentsOf: ["2022-04-23"])
     }
 }
 
 extension HomeViewController {
     private func setCalendar() {
-        calendar.locale = Locale(identifier: "ko_KR")
-        calendar.headerHeight = 0
+        calendar.locale = Locale(identifier: "en_USA")
+        calendar.headerHeight = 80
         calendar.firstWeekday = 2
         calendar.setScope(.month, animated: false)
     }
@@ -121,36 +158,110 @@ extension HomeViewController {
         calendar.appearance.weekdayTextColor = UIColor.calenderGray()
         calendar.appearance.titleFont = UIFont.pretendard(size: 16)
         calendar.appearance.titleDefaultColor = UIColor.haluEmpyo_black()
-        calendar.appearance.titleWeekendColor = UIColor.calenderBlue()
         calendar.appearance.titleTodayColor = UIColor.haluEumpyo_purple()
+        calendar.appearance.titleWeekendColor = UIColor.calenderBlue()
         calendar.appearance.todayColor = .clear
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         calendar.placeholderType = .none
+        calendar.appearance.headerTitleColor = .haluEmpyo_black()
+        calendar.appearance.headerDateFormat = "YYYY\n MMMM"
+        calendar.appearance.headerTitleFont = UIFont.pretendard(size: 20)
+        calendar.appearance.caseOptions = FSCalendarCaseOptions.headerUsesUpperCase
+        calendar.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
     }
     
     private func setDelegation() {
         calendar.delegate = self
         calendar.dataSource = self
+        
+        calendar.register(CalendarCell.self, forCellReuseIdentifier: String(describing: CalendarCell.self))
     }
 }
 
 extension HomeViewController: FSCalendarDelegate {
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        calendar.headerHeight = 80
         calendar.reloadData()
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let writeDiaryViewController = WriteDiaryViewController()
-        self.navigationController?.pushViewController(writeDiaryViewController, animated: true)
     }
 }
 
 // MARK: - FSCalendar DataSource
 
 extension HomeViewController: FSCalendarDataSource {
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        guard let cell = calendar.dequeueReusableCell(
+            withIdentifier: String(describing: CalendarCell.self),
+            for: date,
+            at: position
+        ) as? CalendarCell else { return FSCalendarCell() }
+        configure(cell: cell, for: date, at: position)
+        return cell
+    }
+    
+    private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        guard let cell = cell as? CalendarCell else { return }
+        
+        var filledType = FilledType.none
+        var selectedType = SelectedType.not
+        var width: CGFloat = 32
+        var yPosition: CGFloat = 2
+        let formattedDate = date.toString(of: .year)
+        
+        if self.gregorian.isDateInToday(date) {
+            filledType = .today
+        } else if joyList.contains(formattedDate) {
+            filledType = .joy
+        } else if sadList.contains(formattedDate) {
+            filledType = .sad
+        } else if angryList.contains(formattedDate) {
+            filledType = .angry
+        } else if scaredList.contains(formattedDate) {
+            filledType = .surprise
+        } else {
+            filledType = .none
+        }
+        
+        if calendar.selectedDates.contains(date) && !gregorian.isDateInToday(date) {
+            width = 44
+            yPosition = -4
+            selectedType = .single
+        }
+        
+        cell.width = width
+        cell.yPosition = yPosition
+        cell.selectedType = selectedType
+        cell.filledType = filledType
+    }
 }
 
 // MARK: - FSCalendar Delegate Appearance
 
 extension HomeViewController: FSCalendarDelegateAppearance {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        selectedDate = date.toStringTypeOne
+        calendar.select(date)
+        
+        self.configureVisibleCells()
+        
+        let writeDiaryViewController = WriteDiaryViewController()
+        self.navigationController?.pushViewController(writeDiaryViewController, animated: true)
+    }
+    
+    private func configureVisibleCells() {
+        calendar.visibleCells().forEach { (cell) in
+            let date = calendar.date(for: cell)
+            let position = calendar.monthPosition(for: cell)
+            self.configure(cell: cell, for: date!, at: position)
+        }
+    }
+}
+
+extension HomeViewController: PopUpActionProtocol {
+    func cancelButtonDidTap(_ button: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func confirmButtonDidTap(_ button: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
