@@ -18,6 +18,8 @@ final class RecommendMusicViewController: BaseViewController {
     
     private let buttonView: UIView = UIView()
     
+    private let listenButton: HEButton = HEButton()
+    
     private let backgroundImageView = UIImageView().then {
         $0.image = ImageLiteral.bgEmotionSoso
         $0.contentMode = .scaleAspectFill
@@ -25,17 +27,17 @@ final class RecommendMusicViewController: BaseViewController {
     
     private let subtitleLabel = UILabel().then {
         $0.text = "오늘의 감정을 바탕으로 추천했어요"
-        $0.textColor = .haluEmpyo_black()
+        $0.textColor = .white
         $0.font = .pretendard(.regular, size: 15)
         $0.textAlignment = .center
     }
     
     private let seperatorLine1 = UIView().then {
-        $0.backgroundColor = .haluEmpyo_black()
+        $0.backgroundColor = .white
     }
     
     private let seperatorLine2 = UIView().then {
-        $0.backgroundColor = .haluEmpyo_black()
+        $0.backgroundColor = .white
     }
     
     private let albumCoverImageView = UIImageView().then {
@@ -45,51 +47,22 @@ final class RecommendMusicViewController: BaseViewController {
     
     private let songTitleLabel = UILabel().then {
         $0.text = "See You Again"
-        $0.textColor = .haluEmpyo_black()
-        $0.font = .pretendard(.semiBold, size: 20)
+        $0.textColor = .white
+        $0.font = .pretendard(.semiBold, size: 28)
         $0.textAlignment = .center
     }
     
     private let artistLabel = UILabel().then {
         $0.text = "Charlie Puth"
-        $0.textColor = .haluEmpyo_black()
-        $0.font = .pretendard(.semiBold, size: 16)
+        $0.textColor = .white
+        $0.font = .pretendard(.semiBold, size: 20)
         $0.textAlignment = .center
     }
-    
-    private let buttonBackgroundImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.image = ImageLiteral.btnMove
-    }
-    
-    private lazy var listenButton: UIButton = {
-        let button = UIButton()
-        button.setBackgroundImage(ImageLiteral.btnMove, for: .normal)
-        if #available(iOS 15.0, *) {
-            let container = AttributeContainer([.font: UIFont.pretendard(size: 15), .foregroundColor: UIColor.white])
-            var configuration = UIButton.Configuration.plain()
-            configuration.attributedTitle = AttributedString("들으러 가기", attributes: container)
-            configuration.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 0, bottom: 20, trailing: 0)
-            configuration.image = ImageLiteral.icPlay
-            configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 10)
-            configuration.imagePadding = 4
-            button.configuration = configuration
-        } else {
-            button.setImage(ImageLiteral.icPlay, for: .normal)
-            button.setTitle("들으러 가기", for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.contentEdgeInsets = UIEdgeInsets(top: 14, left: 0, bottom: 14, right: 0)
-            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
-        return button
-    }()
     
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        buttonBackgroundImageView.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Config
@@ -100,13 +73,11 @@ final class RecommendMusicViewController: BaseViewController {
     override func setUpLayoutConstraint() {
         view.addSubview(backgroundImageView)
         view.addSubview(buttonView)
-        view.addSubview(buttonBackgroundImageView)
+        view.addSubview(listenButton)
         
         backgroundImageView.addSubviews([subtitleLabel, seperatorLine1, albumCoverImageView, songTitleLabel, artistLabel, seperatorLine2])
         
         buttonView.addSubview(backButton)
-        
-        buttonBackgroundImageView.addSubview(listenButton)
         
         backgroundImageView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview()
@@ -123,7 +94,7 @@ final class RecommendMusicViewController: BaseViewController {
         }
 
         subtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(buttonView.snp.bottom).offset(15)
+            $0.top.equalTo(buttonView.snp.bottom).offset(37)
             $0.leading.trailing.equalToSuperview()
         }
         
@@ -148,7 +119,7 @@ final class RecommendMusicViewController: BaseViewController {
         }
         
         artistLabel.snp.makeConstraints {
-            $0.top.equalTo(songTitleLabel.snp.bottom).offset(37)
+            $0.top.equalTo(songTitleLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-16)
         }
@@ -159,15 +130,11 @@ final class RecommendMusicViewController: BaseViewController {
             $0.trailing.equalToSuperview().offset(-54)
             $0.height.equalTo(1)
         }
-
-        buttonBackgroundImageView.snp.makeConstraints {
-            $0.top.equalTo(seperatorLine2.snp.bottom).offset(30)
-            $0.width.equalTo(145)
-            $0.centerX.equalToSuperview()
-        }
         
         listenButton.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalTo(seperatorLine2.snp.bottom).offset(37)
+            $0.width.equalTo(145)
+            $0.centerX.equalToSuperview()
         }
     }
 
@@ -177,13 +144,13 @@ final class RecommendMusicViewController: BaseViewController {
                 self?.navigationController?.popToViewController(ofClass: HomeViewController.self)
             })
             .disposed(by: disposeBag)
-    }
-    
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        print("클릭됨")
-        let urlString = artistLabel.text ?? "안녕"
-        print("\(urlString)")
-        let webViewController = WebViewController(urlString: "\(urlString)")
-        self.navigationController?.pushViewController(webViewController, animated: true)
+        
+        listenButton.listenButton.rx.tap
+            .bind(onNext: { [weak self] in
+            let urlString = "see+you+again+charlie+pooth"
+            let webViewController = WebViewController(urlString: "\(urlString)")
+            self?.navigationController?.pushViewController(webViewController, animated: true)
+        })
+            .disposed(by: disposeBag)
     }
 }

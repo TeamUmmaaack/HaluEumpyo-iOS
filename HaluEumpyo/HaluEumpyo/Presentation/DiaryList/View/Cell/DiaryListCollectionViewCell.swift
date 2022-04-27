@@ -71,10 +71,17 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
         return imageView
     }()
     
-    private let seperatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray003()
-        return view
+//    private let seperatorView: UIImageView = {
+//        let view = UIView()
+//        view.backgroundColor = .gray003()
+//        return view
+//    }()
+    
+    private let seperatorView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = ImageLiteral.seperatorLineDot
+        imageView.contentMode = .scaleToFill
+        return imageView
     }()
     
     private let vStackView: UIStackView = {
@@ -98,7 +105,7 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        seperatorView.makeDashedBorderLine(color: .gray003(), strokeLength: 5, gapLength: 2, width: 1, orientation: .horizontal)
+        seperatorView.makeDashedBorderLine(color: .gray003(), strokeLength: 10, gapLength: 2, width: 1, orientation: .horizontal)
     }
     
     required init?(coder: NSCoder) {
@@ -157,8 +164,25 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
     }
     
     func setData(content: Content) {
+        switch content.emotion {
+        case 0:
+            noteImageView.image = ImageLiteral.imgEmotionJoy
+        case 1:
+            noteImageView.image = ImageLiteral.imgEmotionSadness
+        case 2:
+            noteImageView.image = ImageLiteral.imgEmotionSurprise
+        case 3:
+            noteImageView.image = ImageLiteral.imgEmotionAngry
+        case 4:
+            noteImageView.image = ImageLiteral.imgEmotionHate
+        case 5:
+            noteImageView.image = ImageLiteral.imgEmotionFear
+        case 6:
+            noteImageView.image = ImageLiteral.imgEmotionSoso
+        default:
+            noteImageView.image = ImageLiteral.imgEmotionJoy
+        }
         contentId = content.id
-        noteImageView.image = ImageLiteral.imgEmotionJoy
         dateLabel.text = "\(content.date)"
         dayLabel.text = content.day
         contentLabel.text = content.content

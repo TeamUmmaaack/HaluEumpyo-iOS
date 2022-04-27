@@ -201,6 +201,14 @@ final class DatePickerViewController: BaseViewController {
         }).disposed(by: disposeBag)
     }
     
+    override func configUI() {
+        cancelButtonView.clipsToBounds = true
+        cancelButtonView.layer.cornerRadius = 14
+        
+        pickerContainerView.clipsToBounds = true
+        pickerContainerView.layer.cornerRadius = 14
+    }
+    
     override func setUpLayoutConstraint() {
         view.addSubviews([pickerContainerView, hStackView, seperatorView, applyButton, cancelButtonView, cancelButton])
         

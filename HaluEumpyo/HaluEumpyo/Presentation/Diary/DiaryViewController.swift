@@ -27,6 +27,7 @@ class DiaryViewController: BaseViewController {
     private let contentTextView = UITextView().then {
         $0.font = .pretendard(size: 15)
         $0.textColor = UIColor.haluEmpyo_black()
+        $0.isEditable = false
     }
     
     private let dayLabel = UILabel().then {
@@ -72,6 +73,18 @@ class DiaryViewController: BaseViewController {
         bind()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         recommendMusicContainerView.addGestureRecognizer(tapGesture)
+        let style = NSMutableParagraphStyle()
+        let fontSize: CGFloat = 15
+        let lineheight = fontSize * 1.6  //font size * multiple
+        style.minimumLineHeight = lineheight
+        style.maximumLineHeight = lineheight
+
+        contentTextView.attributedText = NSAttributedString(
+            string: contentTextView.text,
+          attributes: [
+            .paragraphStyle: style
+          ])
+        contentTextView.font = .pretendard(.regular, size: fontSize)
     }
     
     override func configUI() {
@@ -100,8 +113,8 @@ class DiaryViewController: BaseViewController {
         default:
             noteImageView.image = ImageLiteral.imgEmotionJoy
         }
-        dateLabel.text = "\(date)"
-        dayLabel.text = "\(day)"
+        dateLabel.text = "2022년 3월 11일"
+        dayLabel.text = "금요일"
         contentTextView.text = content
         songTitleLabel.text = music.components(separatedBy: "-")[0]
         artistLabel.text = music.components(separatedBy: "-")[1]

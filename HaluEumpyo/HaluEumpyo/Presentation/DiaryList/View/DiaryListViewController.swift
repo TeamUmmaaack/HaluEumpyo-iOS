@@ -128,8 +128,8 @@ final class DiaryListViewController: BaseViewController {
             Content(id: 5,
                     day: "FRI",
                     date: 11,
-                    content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 초딩...",
-                    music: "Charlie Pooth - See You Again",
+                    content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 재고가 없어서 초딩들이랑 같이 터덜터덜 나왔었다..🥲 근데 맨 마지막 편의점에서 드디어 하나 샀다! 아직 안 뜯어봤는데 고라파덕 나왔으면 좋겠다..",
+                    music: "Charlie Puth - See You Again",
                     emotion: 0)
         ])
     }
@@ -170,9 +170,7 @@ extension DiaryListViewController: UICollectionViewDataSource {
         cell.setData(content: contents[indexPath.row])
         
         return cell
-    }
-    
-    
+    }    
 }
 
 extension DiaryListViewController: UICollectionViewDelegate {
