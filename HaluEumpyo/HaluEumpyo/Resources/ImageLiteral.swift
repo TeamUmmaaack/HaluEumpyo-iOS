@@ -11,7 +11,7 @@ public enum ImageLiteral {
     public static let btnArchivebox: UIImage = UIImage(named: "btn_archivebox")!
     public static let btnBack: UIImage = UIImage(named: "btn_back")!
     public static let btnDown: UIImage = UIImage(named: "btn_down")!
-    public static let btnMove: UIImage = UIImage(named: "btn_move")!
+    public static let btnListen: UIImage = UIImage(named: "btn_listen")!
     public static let btnSend: UIImage = UIImage(named: "btn_send")!
     public static let btnSetting: UIImage = UIImage(named: "btn_setting")!
     public static let btnSendActivated: UIImage = UIImage(named: "btn_send_activated")!
