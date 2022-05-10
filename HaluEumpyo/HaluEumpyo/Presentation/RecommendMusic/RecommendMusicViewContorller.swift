@@ -20,7 +20,7 @@ final class RecommendMusicViewController: BaseViewController {
     
     private let buttonBackgroundImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = ImageLiteral.btnMove
+        $0.image = ImageLiteral.btnListen
     }
     
     let listenButton: UIButton = {
@@ -29,7 +29,7 @@ final class RecommendMusicViewController: BaseViewController {
             let container = AttributeContainer([.font: UIFont.pretendard(size: 15), .foregroundColor: UIColor.white])
             var configuration = UIButton.Configuration.plain()
             configuration.attributedTitle = AttributedString("들으러 가기", attributes: container)
-            configuration.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 0, bottom: 20, trailing: 0)
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 9, trailing: 0)
             configuration.image = ImageLiteral.icPlay
             configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 10)
             configuration.imagePadding = 4
@@ -39,8 +39,7 @@ final class RecommendMusicViewController: BaseViewController {
             button.setImage(ImageLiteral.icPlay, for: .normal)
             button.setTitle("들으러 가기", for: .normal)
             button.setTitleColor(.white, for: .normal)
-            button.contentEdgeInsets = UIEdgeInsets(top: 14, left: 0, bottom: 14, right: 0)
-            button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         }
         return button
     }()
@@ -164,9 +163,10 @@ final class RecommendMusicViewController: BaseViewController {
         }
         
         listenButton.snp.makeConstraints {
-            $0.top.equalTo(seperatorLine2.snp.bottom).offset(37)
+            $0.top.equalTo(buttonBackgroundImageView.snp.top)
             $0.width.equalTo(145)
             $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(buttonBackgroundImageView.snp.bottom)
         }
     }
 
