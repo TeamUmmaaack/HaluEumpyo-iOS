@@ -55,7 +55,6 @@
 		83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C26280473FB0042696B /* HomeViewController.swift */; };
 		83E329A128085922000A5786 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E329A028085922000A5786 /* CALayer+Extensions.swift */; };
 		83E329A328085F92000A5786 /* DiaryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E329A228085F92000A5786 /* DiaryListViewModel.swift */; };
-		83F2917A2814E6F600638459 /* HEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F291792814E6F600638459 /* HEButton.swift */; };
 		83F2917C2814EBE800638459 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F2917B2814EBE800638459 /* SettingViewController.swift */; };
 		83F600A32812FF2E009E1092 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F600A22812FF2E009E1092 /* CalendarCell.swift */; };
 		F46DBFE6020E2B5415E94C2D /* Pods_HaluEumpyo_HaluEumpyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F4F7F567663403373AF221 /* Pods_HaluEumpyo_HaluEumpyoUITests.framework */; };
@@ -134,7 +133,6 @@
 		83DF9C26280473FB0042696B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		83E329A028085922000A5786 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
 		83E329A228085F92000A5786 /* DiaryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewModel.swift; sourceTree = "<group>"; };
-		83F291792814E6F600638459 /* HEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEButton.swift; sourceTree = "<group>"; };
 		83F2917B2814EBE800638459 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		83F600A22812FF2E009E1092 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		B4F4CB4C83240BD4873864DA /* Pods-HaluEumpyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyoTests.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyoTests/Pods-HaluEumpyoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -461,7 +459,6 @@
 			isa = PBXGroup;
 			children = (
 				8372F4C1280D96DF0095AE29 /* CustomActivityIndicator.swift */,
-				83F291792814E6F600638459 /* HEButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -782,7 +779,6 @@
 				83DF9C20280463330042696B /* BaseCollectionViewCell.swift in Sources */,
 				8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */,
 				8397E5E428059F5200EA2EAF /* DiaryListCollectionViewCell.swift in Sources */,
-				83F2917A2814E6F600638459 /* HEButton.swift in Sources */,
 				83F2917C2814EBE800638459 /* SettingViewController.swift in Sources */,
 				83A115EF28087C6300C20428 /* WriteDiaryViewController.swift in Sources */,
 				83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */,
