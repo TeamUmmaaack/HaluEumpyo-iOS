@@ -30,12 +30,13 @@ final class SettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        navigationController?.isNavigationBarHidden = false
+        bind()
     }
     
     override func configUI() {
         view.backgroundColor = .white
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        setupNavigationBar()
     }
     
     override func setUpLayoutConstraint() {
@@ -85,7 +86,6 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = settingTableView.dequeueReusableCell(withIdentifier: "cell") as? UITableViewCell else {
             return UITableViewCell()
         }
@@ -97,6 +97,5 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

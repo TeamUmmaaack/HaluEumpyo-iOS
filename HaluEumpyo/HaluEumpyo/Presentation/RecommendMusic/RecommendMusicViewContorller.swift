@@ -15,7 +15,6 @@ final class RecommendMusicViewController: BaseViewController {
         $0.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         $0.setImage(ImageLiteral.btnBack, for: .normal)
     }
-    
     private let buttonView: UIView = UIView()
     
     private let buttonBackgroundImageView = UIImageView().then {
@@ -92,6 +91,14 @@ final class RecommendMusicViewController: BaseViewController {
     // MARK: - Config
     override func configUI() {
         view.backgroundColor = .white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupBarHidden()
+    }
+    
+    private func setupBarHidden() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func setUpLayoutConstraint() {

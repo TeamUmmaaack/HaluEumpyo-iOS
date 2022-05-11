@@ -72,7 +72,6 @@ final class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupBarHidden()
-  
     }
     
     private func setupBarHidden() {
