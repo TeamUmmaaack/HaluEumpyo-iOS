@@ -52,31 +52,17 @@ class BaseViewController: UIViewController {
         navigationBar.tintColor = tintColor
     }
     
-    func setupNavigationRightButton(image: UIImage) {
-        let rightButton = UIButton().then {
-            $0.setImage(image, for: .normal)
-        }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightButton)
-    }
-    
-    func setupNavigationLeftButton(image: UIImage) {
-        let leftButton = UIButton().then {
-            $0.setImage(image, for: .normal)
-        }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: leftButton)
-    }
-    
     // MARK: - Vew Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configUI()
         setUpLayoutConstraint()
-        
     }
     
     func configUI() {
         // View Configuration
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setUpLayoutConstraint() {
