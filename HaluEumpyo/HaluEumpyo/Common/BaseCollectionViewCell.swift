@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 
 class BaseCollectionViewCell: UICollectionViewCell {
-    
     let disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
