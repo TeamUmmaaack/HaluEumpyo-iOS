@@ -13,9 +13,24 @@ struct DiaryLists: Codable {
     let diaryContents: [Diary]
 }
 
+struct DiaryContents: Codable {
+    let data: [Diary]
+}
+
 struct Diary: Codable {
-    let date: String
-    let weekOfDate: String
+    let id: Int
     let content: String
-    let music: String
+    let musicID: Int?
+    let emotionID: Int?
+    let title: String
+    let singer: String
+    let cover: String
+    let url: String
+    let createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, content, createdAt, title, singer, cover, url
+        case musicID = "musicId"
+        case emotionID = "emotionId"
+    }
 }
