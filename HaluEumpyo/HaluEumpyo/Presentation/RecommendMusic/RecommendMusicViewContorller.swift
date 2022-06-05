@@ -8,6 +8,7 @@ import Foundation
 import UIKit
 
 import RxSwift
+import Kingfisher
 
 final class RecommendMusicViewController: BaseViewController {
     // MARK: - Property
@@ -21,6 +22,8 @@ final class RecommendMusicViewController: BaseViewController {
         $0.contentMode = .scaleAspectFit
         $0.image = ImageLiteral.btnListen
     }
+    
+    var recommendation: Recommendation?
     
     let listenButton: UIButton = {
         let button = UIButton()
@@ -82,19 +85,30 @@ final class RecommendMusicViewController: BaseViewController {
         $0.textAlignment = .center
     }
     
+    // MARK: - init
+    init(recommendModel: Recommendation) {
+        super.init()
+        recommendation = recommendModel
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupBarHidden()
+    }
+    
     // MARK: - Config
     override func configUI() {
         view.backgroundColor = .white
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        setupBarHidden()
+        setContent(content: recommendation)
     }
     
     private func setupBarHidden() {
@@ -176,6 +190,41 @@ final class RecommendMusicViewController: BaseViewController {
             $0.bottom.equalTo(buttonBackgroundImageView.snp.bottom)
         }
     }
+    
+    private func setContent(content: Recommendation?) {
+        if let imageURL = content?.cover, let url = URL(string: imageURL) {
+            albumCoverImageView.kf.setImage(with: url)
+        }
+        
+        if let songTitle = content?.title {
+            songTitleLabel.text = songTitle
+        }
+        
+        if let artistTitle = content?.singer {
+            artistLabel.text = artistTitle
+        }
+        
+        if let emotionId = content?.emotionID {
+            switch emotionId {
+            case 1:
+                backgroundImageView.image = ImageLiteral.bgEmotionJoy
+            case 2:
+                backgroundImageView.image = ImageLiteral.bgEmotionSadness
+            case 3:
+                backgroundImageView.image = ImageLiteral.bgEmotionSurprise
+            case 4:
+                backgroundImageView.image = ImageLiteral.bgEmotionAngry
+            case 5:
+                backgroundImageView.image = ImageLiteral.bgEmotionHate
+            case 6:
+                backgroundImageView.image = ImageLiteral.bgEmotionFear
+            case 7:
+                backgroundImageView.image = ImageLiteral.bgEmotionSoso
+            default:
+                backgroundImageView.image = ImageLiteral.bgEmotionJoy
+            }
+        }
+    }
 
     private func bind() {
         backButton.rx.tap
@@ -186,7 +235,7 @@ final class RecommendMusicViewController: BaseViewController {
         
         listenButton.rx.tap
             .bind(onNext: { [weak self] in
-            let urlString = "see+you+again+charlie+pooth"
+                let urlString = self?.recommendation?.url ?? ""
             let webViewController = WebViewController(urlString: "\(urlString)")
             self?.navigationController?.pushViewController(webViewController, animated: true)
         })
