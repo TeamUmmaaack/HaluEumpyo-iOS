@@ -18,6 +18,7 @@ final class WriteDiaryViewController: BaseViewController {
     // MARK: - Property
     private let topView = WriteDiaryTopView()
     var currentDate: AppDate?
+    private var writeDiaryRequest = WriteDiaryRequestModel(content: "")
     
     private let contextView = UIView().then {
         $0.backgroundColor = UIColor.white
@@ -77,11 +78,7 @@ final class WriteDiaryViewController: BaseViewController {
         topView.rightButton.rx.tap
             .bind(onNext: { [weak self] in
                 CustomActivityIndicator.shared.show()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    CustomActivityIndicator.shared.hide()
-                    let recommendMusicViewController = RecommendMusicViewController()
-                    self?.navigationController?.pushViewController(recommendMusicViewController, animated: true)
-                }
+                self?.postDiary()
             })
             .disposed(by: disposeBag)
         
@@ -121,7 +118,7 @@ final class WriteDiaryViewController: BaseViewController {
             .asDriver()
             .map { [weak self] content -> Bool in
             guard let self = self else { return false }
-            if (content?.isEmpty ?? true || self.isPlaceHolderString(content ?? ""))  {
+            if content?.isEmpty ?? true || self.isPlaceHolderString(content ?? "") {
                 return false
             } else {
                 return true
@@ -164,5 +161,33 @@ final class WriteDiaryViewController: BaseViewController {
 extension WriteDiaryViewController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         ModalPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+}
+
+extension WriteDiaryViewController {
+    func postDiary() {
+        writeDiaryRequest.content = contentTextView.text
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5 ) {
+            CustomActivityIndicator.shared.hide()
+        }
+        DiaryService.shared.postDiary(parameter: writeDiaryRequest) { (response) in
+            switch response {
+            case .success(let data):
+                if let data = data as? [Recommendation] {
+                    let recommendMusicViewController = RecommendMusicViewController(recommendModel: data[0])
+                    self.navigationController?.pushViewController(recommendMusicViewController, animated: true)
+                }
+            case .requestErr(let message):
+                print(message)
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            case .none:
+                print("none")
+            }
+        }
     }
 }

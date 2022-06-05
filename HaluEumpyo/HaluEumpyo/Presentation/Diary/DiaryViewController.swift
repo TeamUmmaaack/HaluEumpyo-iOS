@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 
+import Kingfisher
+
 class DiaryViewController: BaseViewController {
     // MARK: - Property
     private var songTitle: String?
     private var artistName: String?
+    
+    private let diary: Diary
+    private let locale: String
     
     private let backButton = UIButton().then {
         $0.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
@@ -43,7 +48,7 @@ class DiaryViewController: BaseViewController {
         $0.applyZeplinShadow(alpha: 0.1, x: 0, y: 4, blur: 10, spread: 0)
     }
     
-    private let albumCoverView = UIImageView().then {
+    private let albumCoverImageView = UIImageView().then {
         $0.contentMode = .scaleToFill
         $0.clipsToBounds = true
         $0.backgroundColor = .white
@@ -85,6 +90,7 @@ class DiaryViewController: BaseViewController {
             .paragraphStyle: style
           ])
         contentTextView.font = .pretendard(.regular, size: fontSize)
+        configure(from: diary)
     }
     
     override func configUI() {
@@ -92,34 +98,15 @@ class DiaryViewController: BaseViewController {
         setupNavigationBar()
     }
     
-    // MARK: - inti
-    init(contentId: Int?, emotion: Int, content: String, music: String, day: String, date: Int) {
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK: - init
+    init(diary: Diary, locale: String) {
+        self.diary = diary
+        self.locale = locale
         super.init()
-        switch emotion {
-        case 0:
-            noteImageView.image = ImageLiteral.imgEmotionJoy
-        case 1:
-            noteImageView.image = ImageLiteral.imgEmotionSadness
-        case 2:
-            noteImageView.image = ImageLiteral.imgEmotionSurprise
-        case 3:
-            noteImageView.image = ImageLiteral.imgEmotionAngry
-        case 4:
-            noteImageView.image = ImageLiteral.imgEmotionHate
-        case 5:
-            noteImageView.image = ImageLiteral.imgEmotionFear
-        case 6:
-            noteImageView.image = ImageLiteral.imgEmotionSoso
-        default:
-            noteImageView.image = ImageLiteral.imgEmotionJoy
-        }
-        dateLabel.text = "2022년 3월 11일"
-        dayLabel.text = "금요일"
-        contentTextView.text = content
-        songTitleLabel.text = music.components(separatedBy: "-")[0]
-        artistLabel.text = music.components(separatedBy: "-")[1]
-        self.songTitle = music.components(separatedBy: "-")[0]
-        self.artistName = music.components(separatedBy: "-")[1]
     }
     
     required init?(coder: NSCoder) {
@@ -131,7 +118,7 @@ class DiaryViewController: BaseViewController {
         super.setUpLayoutConstraint()
         
         view.addSubviews([dateLabel, dayLabel, contentTextView, recommendMusicContainerView])
-        recommendMusicContainerView.addSubviews([albumCoverView, songTitleLabel, artistLabel, noteImageView])
+        recommendMusicContainerView.addSubviews([albumCoverImageView, songTitleLabel, artistLabel, noteImageView])
         
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -156,7 +143,7 @@ class DiaryViewController: BaseViewController {
             $0.bottom.equalToSuperview().offset(-20)
         }
         
-        albumCoverView.snp.makeConstraints {
+        albumCoverImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(17)
             $0.leading.equalToSuperview().offset(12)
             $0.height.equalTo(60)
@@ -165,12 +152,12 @@ class DiaryViewController: BaseViewController {
         
         songTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(17)
-            $0.leading.equalTo(albumCoverView.snp.trailing).offset(15)
+            $0.leading.equalTo(albumCoverImageView.snp.trailing).offset(15)
             $0.trailing.lessThanOrEqualToSuperview().offset(30)
         }
         
         artistLabel.snp.makeConstraints {
-            $0.leading.equalTo(albumCoverView.snp.trailing).offset(15)
+            $0.leading.equalTo(albumCoverImageView.snp.trailing).offset(15)
             $0.trailing.lessThanOrEqualToSuperview().offset(12)
             $0.bottom.equalToSuperview().offset(-17)
         }
@@ -185,7 +172,7 @@ class DiaryViewController: BaseViewController {
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
         print("클릭됨")
-        let urlString = makeURL(artistName: artistName ?? "", songtitle: songTitle ?? "")
+        let urlString = diary.url
         let webViewController = WebViewController(urlString: "\(urlString)")
         self.navigationController?.pushViewController(webViewController, animated: true)
     }
@@ -198,6 +185,26 @@ class DiaryViewController: BaseViewController {
     }
     
     // MARK: - func
+    private func configure(from diary: Diary) {
+        contentTextView.text = diary.content
+        songTitleLabel.text = diary.title
+        artistLabel.text = diary.singer
+        let text = setDate(locale: locale, date: diary.createdAt)
+        dateLabel.text = text.components(separatedBy: "-")[0]
+        dayLabel.text = text.components(separatedBy: "-")[1]
+        let url = URL(string: diary.cover)
+        albumCoverImageView.kf.setImage(with: url)
+    }
+    
+    private func setDate(locale: String, date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: locale)
+        dateFormatter.dateFormat = Date.FormatType.calendar.description
+        let convertedDate = dateFormatter.date(from: date)
+        guard let string = convertedDate?.toString(of: .day) else { return "" }
+        return string
+    }
+    
     private func bind() {
         backButton.rx.tap
             .asDriver()
