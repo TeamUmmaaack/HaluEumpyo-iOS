@@ -33,7 +33,7 @@ final class WebViewModel {
             }
         
         func getYoutubeSearchUrl(withKeyword keyword: String?) -> String {
-            let youtubeSearchUrl = "https://www.youtube.com/results?search_query=\(keyword ?? "")"
+            let youtubeSearchUrl = "\(keyword ?? "")"
             return youtubeSearchUrl
         }
     }
