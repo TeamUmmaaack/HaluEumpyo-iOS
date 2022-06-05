@@ -113,6 +113,7 @@ final class CalendarCell: FSCalendarCell {
             self.titleLabel.font = .pretendard(.semiBold, size: 18)
             self.emotionImageView.image = nil
         case .none:
+            self.titleLabel.textColor = .black
             self.emotionImageView.image = nil
         }
     }
