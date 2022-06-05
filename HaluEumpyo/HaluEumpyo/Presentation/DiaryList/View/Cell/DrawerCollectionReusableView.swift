@@ -23,7 +23,7 @@ final class DrawerCollectionReusableView: UICollectionReusableView {
         return label
     }()
     
-    private let calenderButton: UIButton = {
+    private lazy var calenderButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "btn_down"), for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -60,7 +60,7 @@ final class DrawerCollectionReusableView: UICollectionReusableView {
     }
     
     @objc private func setData(notification: NSNotification) {
-        if let date = notification.object as? Array<String> {
+        if let date = notification.object as? [String] {
             let year = date[0]
             let month = date[1]
             
