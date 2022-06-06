@@ -236,7 +236,7 @@ final class RecommendMusicViewController: BaseViewController {
         listenButton.rx.tap
             .bind(onNext: { [weak self] in
                 let urlString = self?.recommendation?.url ?? ""
-            let webViewController = WebViewController(urlString: "\(urlString)")
+            let webViewController = WebViewController(urlString: urlString)
             self?.navigationController?.pushViewController(webViewController, animated: true)
         })
             .disposed(by: disposeBag)
