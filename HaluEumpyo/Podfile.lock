@@ -1,7 +1,12 @@
 PODS:
+  - Alamofire (5.5.0)
   - FSCalendar (2.8.4)
   - IQKeyboardManagerSwift (6.5.9)
   - Kingfisher (7.2.0)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -16,6 +21,7 @@ DEPENDENCIES:
   - FSCalendar
   - IQKeyboardManagerSwift
   - Kingfisher
+  - Moya (~> 15.0)
   - RxCocoa
   - RxSwift
   - SnapKit
@@ -24,9 +30,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - FSCalendar
     - IQKeyboardManagerSwift
     - Kingfisher
+    - Moya
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -35,9 +43,11 @@ SPEC REPOS:
     - Then
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
@@ -45,6 +55,6 @@ SPEC CHECKSUMS:
   SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 30dd455d188973137bef092e0d020474d377553d
+PODFILE CHECKSUM: 83cd90b1cb3dd3e35a8b40b396a7f5f68b9447dd
 
 COCOAPODS: 1.11.2
