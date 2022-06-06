@@ -186,6 +186,24 @@ class DiaryViewController: BaseViewController {
     
     // MARK: - func
     private func configure(from diary: Diary) {
+        switch diary.emotionID {
+        case 1:
+            noteImageView.image = ImageLiteral.imgEmotionJoy
+        case 2:
+            noteImageView.image = ImageLiteral.imgEmotionSadness
+        case 3:
+            noteImageView.image = ImageLiteral.imgEmotionSurprise
+        case 4:
+            noteImageView.image = ImageLiteral.imgEmotionAngry
+        case 5:
+            noteImageView.image = ImageLiteral.imgEmotionHate
+        case 6:
+            noteImageView.image = ImageLiteral.imgEmotionFear
+        case 7:
+            noteImageView.image = ImageLiteral.imgEmotionSoso
+        default:
+            noteImageView.image = ImageLiteral.imgEmotionJoy
+        }
         contentTextView.text = diary.content
         songTitleLabel.text = diary.title
         artistLabel.text = diary.singer
