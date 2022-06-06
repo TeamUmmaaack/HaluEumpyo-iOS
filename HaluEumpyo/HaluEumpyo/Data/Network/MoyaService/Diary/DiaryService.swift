@@ -68,7 +68,7 @@ public class DiaryService {
         case 201..<300:
             return .success(decodedData.status as Any)
         case 400..<500:
-            return .requestErr(decodedData.status as Any)
+            return .requestErr(decodedData.message as Any)
         case 500:
             return .serverErr
         default:
