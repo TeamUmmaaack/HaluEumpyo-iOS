@@ -10,7 +10,6 @@ import Foundation
 import Moya
 
 enum DiaryAPI {
-    
     case getCurrentMonthDiaries(request: DiaryRequestModel)
     case getDiaries
     case postDiary(parameter: WriteDiaryRequestModel)
@@ -42,8 +41,8 @@ extension DiaryAPI: BaseTargetType {
     var task: Task {
         switch self {
         case .getCurrentMonthDiaries(let request):
-            return .requestParameters(parameters: ["date": request.date]
-                                      , encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: ["date": request.date], 
+                                      encoding: URLEncoding.queryString)
         case .getDiaries:
             return .requestPlain
         case .postDiary(let parameter):
