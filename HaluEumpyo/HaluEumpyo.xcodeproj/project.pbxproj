@@ -48,7 +48,7 @@
 		83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A7F92804A29C00208FD8 /* HomeTopView.swift */; };
 		83D7CA7C280AD75700E49B8D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7CA7B280AD75700E49B8D /* WebViewController.swift */; };
 		83D7CA82280B321000E49B8D /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7CA81280B321000E49B8D /* WebViewModel.swift */; };
-		83D7E3572814037200D02E0C /* PopUpActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E3562814037200D02E0C /* PopUpActionDelegate.swift */; };
+		83D7E3572814037200D02E0C /* PopUpActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */; };
 		83D7E359281448F100D02E0C /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E358281448F100D02E0C /* Diary.swift */; };
 		83DF9C20280463330042696B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */; };
 		83DF9C2528046B4F0042696B /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C2428046B4F0042696B /* DiaryListViewController.swift */; };
@@ -126,7 +126,7 @@
 		83B2A7F92804A29C00208FD8 /* HomeTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopView.swift; sourceTree = "<group>"; };
 		83D7CA7B280AD75700E49B8D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		83D7CA81280B321000E49B8D /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
-		83D7E3562814037200D02E0C /* PopUpActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpActionDelegate.swift; sourceTree = "<group>"; };
+		83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpActionProtocol.swift; sourceTree = "<group>"; };
 		83D7E358281448F100D02E0C /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		83DF9C2428046B4F0042696B /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 			children = (
 				836B57C928112F6D00661746 /* Protocol */,
 				83930695280322130088F2C6 /* Font */,
-				83D7E3562814037200D02E0C /* PopUpActionDelegate.swift */,
+				83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -385,13 +385,6 @@
 				83F2917B2814EBE800638459 /* SettingViewController.swift */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		836B57C928112F6D00661746 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		83930695280322130088F2C6 /* Font */ = {
@@ -796,7 +789,7 @@
 				8372F4C4280D98DC0095AE29 /* RecommendMusicViewContorller.swift in Sources */,
 				839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */,
 				83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */,
-				83D7E3572814037200D02E0C /* PopUpActionDelegate.swift in Sources */,
+				83D7E3572814037200D02E0C /* PopUpActionProtocol.swift in Sources */,
 				836B57CD2811A73B00661746 /* FeedBackPopUpViewController.swift in Sources */,
 				8397E5E228056F5D00EA2EAF /* AppDate.swift in Sources */,
 			);

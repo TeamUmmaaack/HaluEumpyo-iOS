@@ -1,5 +1,5 @@
 //
-//  PopUpActionDelegate.swift
+//  PopUpActionProtocol.swift
 //  HaluEumpyo
 //
 //  Created by 배소린 on 2022/04/23.
