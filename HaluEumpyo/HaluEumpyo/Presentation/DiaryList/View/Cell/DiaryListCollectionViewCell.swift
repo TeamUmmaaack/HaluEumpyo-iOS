@@ -152,7 +152,7 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
         recommendedSongLabel.snp.makeConstraints {
             $0.bottom.equalTo(contentView).inset(12)
             $0.leading.equalTo(contentContainerView.snp.leading).offset(12)
-            $0.trailing.equalTo(noteImageView.snp.leading).offset(12)
+            $0.trailing.equalTo(noteImageView.snp.leading).offset(-12)
         }
         
         noteImageView.snp.makeConstraints {
