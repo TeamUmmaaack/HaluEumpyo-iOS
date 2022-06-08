@@ -163,29 +163,28 @@ class DiaryListCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func setData(content: Content) {
-        switch content.emotion {
-        case 0:
-            noteImageView.image = ImageLiteral.imgEmotionJoy
+    func setData(from content: Diary) {
+        switch content.emotionID {
         case 1:
-            noteImageView.image = ImageLiteral.imgEmotionSadness
+            noteImageView.image = ImageLiteral.imgEmotionJoy
         case 2:
-            noteImageView.image = ImageLiteral.imgEmotionSurprise
+            noteImageView.image = ImageLiteral.imgEmotionSadness
         case 3:
-            noteImageView.image = ImageLiteral.imgEmotionAngry
+            noteImageView.image = ImageLiteral.imgEmotionSurprise
         case 4:
-            noteImageView.image = ImageLiteral.imgEmotionHate
+            noteImageView.image = ImageLiteral.imgEmotionAngry
         case 5:
-            noteImageView.image = ImageLiteral.imgEmotionFear
+            noteImageView.image = ImageLiteral.imgEmotionHate
         case 6:
+            noteImageView.image = ImageLiteral.imgEmotionFear
+        case 7:
             noteImageView.image = ImageLiteral.imgEmotionSoso
         default:
             noteImageView.image = ImageLiteral.imgEmotionJoy
         }
-        contentId = content.id
-        dateLabel.text = "\(content.date)"
-        dayLabel.text = content.day
+        dateLabel.text = content.createdAt.components(separatedBy: "-")[2].components(separatedBy: " ")[0]
+        dayLabel.text = content.createdAt.components(separatedBy: " ")[1]
         contentLabel.text = content.content
-        recommendedSongLabel.text = content.music
+        recommendedSongLabel.text = "\(content.title) - \(content.singer)"
     }
 }

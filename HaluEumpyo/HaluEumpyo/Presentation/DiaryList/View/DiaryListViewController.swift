@@ -17,6 +17,7 @@ final class DiaryListViewController: BaseViewController {
     private var currentDate: AppDate?
     private var selectedYear: Int?
     private var selectedMonth: Int?
+    private var currentPage = -1
     
     // MARK: - Property
     private lazy var diaryListCollectionView: UICollectionView = {
@@ -36,13 +37,15 @@ final class DiaryListViewController: BaseViewController {
         return collectionView
     }()
     
-    private var contents: [Content] = []
+    var diaries: [Diary] = []
     
     private let backButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         button.setImage(UIImage(named: "btn_back"), for: .normal)
         return button
     }()
+    
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +55,10 @@ final class DiaryListViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         guard let year = selectedYear,
               let month = selectedMonth else { return }
-        setContentsList()
+        self.getDiaries(request: DiaryRequestModel.init(date: "\(year)-\(month)-01"))
     }
     
     private func initCurrentDate() {
@@ -68,6 +71,8 @@ final class DiaryListViewController: BaseViewController {
         print("observer 더함")
         NotificationCenter.default.addObserver(self, selector: #selector(presentPickerView), name: NSNotification.Name("calendarButtonClicked"), object: nil)
     }
+    
+    // MARK: - config
     
     override func configUI() {
         super.configUI()
@@ -83,55 +88,18 @@ final class DiaryListViewController: BaseViewController {
         }
     }
     
-    @objc func presentPickerView(notification: NSNotification) {
-        print("presentPickerView 부름")
-        guard let year = selectedYear, let month = selectedMonth else { return }
-        
-        self.modalDateView = DatePickerViewController()
-        self.modalDateView?.datePickerDataDelegate = self
-        guard let modalDateView = self.modalDateView else { return }
-        modalDateView.year = year
-        modalDateView.month = month
-        modalDateView.modalPresentationStyle = .custom
-        modalDateView.transitioningDelegate = self
-        
-        self.present(modalDateView, animated: true, completion: nil)
+    private func updateData(data: [Diary]) {
+        self.diaries = data
+        self.parseDate()
+        diaryListCollectionView.reloadData()
     }
     
-    func setContentsList() {
-        contents.append(contentsOf: [
-            Content(id: 1,
-                    day: "WED",
-                    date: 2,
-                    content: "과제 제출이 어제까지였다 망했다...ㅋㅋㅋㅋㅋㅋ 기분완전 꿀꿀하다",
-                    music: "Bring me the horizon -Doomed",
-                    emotion: 3
-                   ),
-            Content(id: 2,
-                    day: "SAT",
-                    date: 5,
-                    content: "새벽 1시에 봤다...ㅎ 엄마랑 같이 자야지 진짜 무섭네",
-                    music: "Michael Jackson - Thriller",
-                    emotion: 5),
-            Content(id: 3,
-                    day: "Tue",
-                    date: 8,
-                    content: "으으으 바퀴벌레 봤다 기분나빠 ",
-                    music: "HALSEY - I HATE EVERYTHING",
-                    emotion: 4),
-            Content(id: 4,
-                    day: "THUR",
-                    date: 10,
-                    content: "그저 그런 하루였다 뭔가 특별한 것도 없었고...",
-                    music: "Supertramp - Just A Normal Day",
-                    emotion: 6),
-            Content(id: 5,
-                    day: "FRI",
-                    date: 11,
-                    content: "포켓몬빵 드디어 샀다 ㅋㅋ 편의점 다섯 군데 돌았는데 재고가 없어서 초딩들이랑 같이 터덜터덜 나왔었다..🥲 근데 맨 마지막 편의점에서 드디어 하나 샀다! 아직 안 뜯어봤는데 고라파덕 나왔으면 좋겠다..",
-                    music: "Charlie Puth - See You Again",
-                    emotion: 0)
-        ])
+    public func parseDate() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Date.FormatType.full.description
+        _ = diaries.map {
+            dateFormatter.date(from: $0.createdAt)?.toEngString(of: .calendar)
+        }
     }
     
     private func bind() {
@@ -155,46 +123,22 @@ final class DiaryListViewController: BaseViewController {
     private func makeBarButtonItem(with button: UIButton) -> UIBarButtonItem {
         return UIBarButtonItem(customView: button)
     }
-}
-
-extension DiaryListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contents.count
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: DiaryListCollectionViewCell.self), for: indexPath) as? DiaryListCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        cell.containerView.layer.applyShadow(color: UIColor.black, alpha: 0.06, x: 0, y: 4, blur: 10, spread: 0)
-        cell.setData(content: contents[indexPath.row])
+    // MARK: - @objc functions
+    
+    @objc func presentPickerView(notification: NSNotification) {
+        print("presentPickerView 부름")
+        guard let year = selectedYear, let month = selectedMonth else { return }
         
-        return cell
-    }    
-}
-
-extension DiaryListViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: DrawerCollectionReusableView.self), for: indexPath)
-            return headerView
-        default:
-            assert(false, "에러")
-            return UICollectionReusableView()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = indexPath.item
-        let diaryViewController = DiaryViewController(contentId: contents[item].id, emotion: contents[item].emotion, content: contents[item].content, music: contents[item].music, day: contents[item].day, date: contents[item].date)
-        navigationController?.pushViewController(diaryViewController, animated: true)
-    }
-}
-
-extension DiaryListViewController: UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        ModalPresentationController(presentedViewController: presented, presenting: presenting)
+        self.modalDateView = DatePickerViewController()
+        self.modalDateView?.datePickerDataDelegate = self
+        guard let modalDateView = self.modalDateView else { return }
+        modalDateView.year = year
+        modalDateView.month = month
+        modalDateView.modalPresentationStyle = .custom
+        modalDateView.transitioningDelegate = self
+        
+        self.present(modalDateView, animated: true, completion: nil)
     }
 }
 
@@ -208,7 +152,33 @@ extension DiaryListViewController: DatePickerViewDelegate {
         
         let yearMonthDate = [year, month]
         NotificationCenter.default.post(name: NSNotification.Name("datePickerSelected"), object: yearMonthDate)
-        
+        getDiaries(request: DiaryRequestModel.init(date: "\(unwrappedYear)-\(unwrappedMonth)-01"))
         diaryListCollectionView.reloadData()
+    }
+}
+
+extension DiaryListViewController {
+    public func getDiaries(request: DiaryRequestModel) {
+        self.currentPage += 1
+        DiaryService.shared.getCurrentMonthDiaries(request: request) { [weak self] response in
+            switch response {
+            case .success(let data):
+                print("데이터: ", data)
+                guard let data = data as? [Diary] else { return }
+                self?.updateData(data: data)
+                self?.diaryListCollectionView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                         self?.diaryListCollectionView.performBatchUpdates(nil, completion: nil)
+                       }
+            case .requestErr(let message):
+                print("requesterr \(message)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("pathErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }

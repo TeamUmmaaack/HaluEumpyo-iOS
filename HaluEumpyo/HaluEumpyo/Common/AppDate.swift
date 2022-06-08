@@ -8,7 +8,6 @@
 import Foundation
 
 class AppDate {
-    
     // MARK: - Properties
     
     private var date: Date?

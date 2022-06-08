@@ -86,7 +86,7 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = settingTableView.dequeueReusableCell(withIdentifier: "cell") as? UITableViewCell else {
+        guard let cell = settingTableView.dequeueReusableCell(withIdentifier: "cell") else {
             return UITableViewCell()
         }
         

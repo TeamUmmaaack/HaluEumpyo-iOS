@@ -23,6 +23,37 @@ final class HomeViewController: BaseViewController {
        return calendar
     }()
     
+    enum Emotion: Int {
+        case joy = 1
+        case sadness = 2
+        case surprise = 3
+        case angry = 4
+        case hate = 5
+        case fear = 6
+        case soso = 7
+    }
+    
+    var joyList: [String] = []
+    var sadList: [String] = []
+    var angryList: [String] = []
+    var scaredList: [String] = []
+    var sosoList: [String] = []
+    
+    //Used by one of the example methods
+    var scheduleItems: [Diary] = [] {
+        didSet {
+            self.calendar.reloadData()
+        }
+    }
+    
+    var newItems = [Attributes: Diary]()
+    
+    var selectedDate: String = Date().toStringTypeOne
+    
+    private let feedbackPopUp = FeedBackPopUpViewController()
+    
+    let gregorian = Calendar(identifier: .gregorian)
+    
     private let yearLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.haluEmpyo_black()
@@ -46,62 +77,34 @@ final class HomeViewController: BaseViewController {
         return view
     }()
     
-    private var joyList: [String] = []
-    private var sadList: [String] = []
-    private var angryList: [String] = []
-    private var scaredList: [String] = []
-    private var sosoList: [String] = []
-    
-    //Used by one of the example methods
-    var datesWithEvent = ["2022-04-01", "2022-04-06", "2022-04-12", "2022-04-23"]
-
-    var selectedDate: String = Date().toStringTypeOne
-    
-    private let feedbackPopUp = FeedBackPopUpViewController()
-    
-    let gregorian = Calendar(identifier: .gregorian)
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Date())
         bind()
         setDelegation()
-        setDiaryContents()
         setCalendar()
         setCalendarStyle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.joyList = []
+        self.sadList = []
+        self.angryList = []
+        self.scaredList = []
+        self.sosoList = []
         setupBarHidden()
+        getDiaries()
     }
-    
     private func setupBarHidden() {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
+    // MARK: - Config
 
     override func configUI() {
         view.backgroundColor = .white
-    }
-    
-    private func bind() {
-        topView.leftButton.rx.tap
-            .bind(onNext: { [weak self] in
-                let diaryListViewController = DiaryListViewController()
-                self?.navigationController?.pushViewController(diaryListViewController, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        topView.rightButton.rx.tap
-            .bind(onNext: { [weak self] in
-                let settingViewController = SettingViewController()
-                self?.navigationController?.pushViewController(settingViewController, animated: true)
-            }).disposed(by: disposeBag)
-        
-        writeButton.rx.tap
-            .bind(onNext: { [weak self] in
-            let writeDiaryViewController = WriteDiaryViewController()
-            self?.navigationController?.pushViewController(writeDiaryViewController, animated: true)
-        })
-        .disposed(by: disposeBag)
     }
     
     override func setUpLayoutConstraint() {
@@ -135,18 +138,43 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    func setDiaryContents() {
-        joyList.append(contentsOf: ["2022-04-06", "2022-04-11", "2022-04-12"])
-        sadList.append(contentsOf: ["2022-04-08"])
-        angryList.append(contentsOf: ["2022-04-15", "2022-4-20"])
-        scaredList.append(contentsOf: ["2022-04-19"])
-        sosoList.append(contentsOf: ["2022-04-23"])
+    struct Attributes: Hashable {
+        var date: String
+        var emotion: Emotion
+    }
+    
+    func findDiary(_ emotion: Emotion, date: String) -> Diary? {
+        let key = Attributes(date: date, emotion: emotion)
+        guard let diary = newItems[key] else { return nil }
+        return diary
+    }
+    
+    private func bind() {
+        topView.leftButton.rx.tap
+            .bind(onNext: { [weak self] in
+                let diaryListViewController = DiaryListViewController()
+                self?.navigationController?.pushViewController(diaryListViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        topView.rightButton.rx.tap
+            .bind(onNext: { [weak self] in
+                let settingViewController = SettingViewController()
+                self?.navigationController?.pushViewController(settingViewController, animated: true)
+            }).disposed(by: disposeBag)
+        
+        writeButton.rx.tap
+            .bind(onNext: { [weak self] in
+            let writeDiaryViewController = WriteDiaryViewController()
+            self?.navigationController?.pushViewController(writeDiaryViewController, animated: true)
+        })
+        .disposed(by: disposeBag)
     }
 }
 
 extension HomeViewController {
     private func setCalendar() {
-        calendar.locale = Locale(identifier: "en_USA")
+        calendar.locale = Locale(identifier: "ko_KR")
         calendar.headerHeight = 80
         calendar.firstWeekday = 2
         calendar.setScope(.month, animated: false)
@@ -177,6 +205,19 @@ extension HomeViewController {
     }
 }
 
+// MARK: - PopUpActionProtocol
+
+extension HomeViewController: PopUpActionProtocol {
+    func cancelButtonDidTap(_ button: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func confirmButtonDidTap(_ button: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - FSCalendarDelegate
 extension HomeViewController: FSCalendarDelegate {
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         calendar.headerHeight = 80
@@ -201,29 +242,25 @@ extension HomeViewController: FSCalendarDataSource {
         guard let cell = cell as? CalendarCell else { return }
         
         var filledType = FilledType.none
-        var selectedType = SelectedType.not
-        var width: CGFloat = 32
-        var yPosition: CGFloat = 2
+        let selectedType = SelectedType.not
+        let width: CGFloat = 32
+        let yPosition: CGFloat = 2
         let formattedDate = date.toString(of: .year)
         
-        if self.gregorian.isDateInToday(date) {
-            filledType = .today
-        } else if joyList.contains(formattedDate) {
+        if joyList.contains(formattedDate) {
             filledType = .joy
         } else if sadList.contains(formattedDate) {
             filledType = .sad
         } else if angryList.contains(formattedDate) {
             filledType = .angry
         } else if scaredList.contains(formattedDate) {
-            filledType = .surprise
+            filledType = .fear
+        } else if sosoList.contains(formattedDate) {
+            filledType = .soso
+        } else if self.gregorian.isDateInToday(date) {
+            filledType = .today
         } else {
             filledType = .none
-        }
-        
-        if calendar.selectedDates.contains(date) && !gregorian.isDateInToday(date) {
-            width = 44
-            yPosition = -4
-            selectedType = .single
         }
         
         cell.width = width
@@ -240,10 +277,26 @@ extension HomeViewController: FSCalendarDelegateAppearance {
         selectedDate = date.toStringTypeOne
         calendar.select(date)
         
-        self.configureVisibleCells()
-        
-        let writeDiaryViewController = WriteDiaryViewController()
-        self.navigationController?.pushViewController(writeDiaryViewController, animated: true)
+        if joyList.contains(selectedDate) {
+            guard let content = findDiary(.joy, date: selectedDate) else { return }
+            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            self.navigationController?.pushViewController(diaryViewController, animated: true)
+        } else if sadList.contains(selectedDate) {
+            guard let content = findDiary(.sadness, date: selectedDate) else { return }
+            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            self.navigationController?.pushViewController(diaryViewController, animated: true)
+        } else if angryList.contains(selectedDate) {
+            guard let content = findDiary(.angry, date: selectedDate) else { return }
+            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            self.navigationController?.pushViewController(diaryViewController, animated: true)
+        } else if sosoList.contains(selectedDate) {
+            guard let content = findDiary(.soso, date: selectedDate) else { return }
+            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            self.navigationController?.pushViewController(diaryViewController, animated: true)
+        } else if self.gregorian.isDateInToday(date) {
+            let writeDiaryViewController = WriteDiaryViewController()
+            self.navigationController?.pushViewController(writeDiaryViewController, animated: true)
+        }
     }
     
     private func configureVisibleCells() {
@@ -252,15 +305,5 @@ extension HomeViewController: FSCalendarDelegateAppearance {
             let position = calendar.monthPosition(for: cell)
             self.configure(cell: cell, for: date!, at: position)
         }
-    }
-}
-
-extension HomeViewController: PopUpActionProtocol {
-    func cancelButtonDidTap(_ button: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func confirmButtonDidTap(_ button: UIButton) {
-        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -21,9 +21,7 @@ final class WebViewModel {
      
         self.urlRequest = self.urlString
             .compactMap { urlString -> String? in
-                let validUrlString = getYoutubeSearchUrl(withKeyword: urlString)
-                print("url: \(validUrlString)")
-                return validUrlString
+                return urlString
             }
             .compactMap {
                 URL(string: $0)
@@ -32,8 +30,8 @@ final class WebViewModel {
                 URLRequest(url: $0)
             }
         
-        func getYoutubeSearchUrl(withKeyword keyword: String?) -> String {
-            let youtubeSearchUrl = "https://www.youtube.com/results?search_query=\(keyword ?? "")"
+        func getYoutubeSearchUrl(withKeyword keyword: String?) -> String? {
+            let youtubeSearchUrl = "\(keyword ?? "")"
             return youtubeSearchUrl
         }
     }

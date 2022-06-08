@@ -9,10 +9,22 @@
 /* Begin PBXBuildFile section */
 		01A8996A4E2401E81C3C8980 /* Pods_HaluEumpyoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */; };
 		12E5CD6E003F5782BE772AAF /* Pods_HaluEumpyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */; };
-		831FAFCE28070AA600040412 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */; };
 		831FAFD128070D2D00040412 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD028070D2D00040412 /* Content.swift */; };
 		831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD228073DEB00040412 /* DatePickerViewController.swift */; };
 		831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD428074F3400040412 /* ModalPresentationController.swift */; };
+		83273174283EC215002A7422 /* DiaryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273173283EC215002A7422 /* DiaryAPI.swift */; };
+		83273177283EC3B4002A7422 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273176283EC3B4002A7422 /* GeneralResponse.swift */; };
+		83273179283EC3D2002A7422 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273178283EC3D2002A7422 /* NetworkResult.swift */; };
+		8327317B283EC3FD002A7422 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8327317A283EC3FD002A7422 /* MoyaLoggingPlugin.swift */; };
+		8327317D283EC40E002A7422 /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8327317C283EC40E002A7422 /* DiaryService.swift */; };
+		8327317F283EC4E0002A7422 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8327317E283EC4E0002A7422 /* BaseTargetType.swift */; };
+		83273181283EC505002A7422 /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273180283EC505002A7422 /* URLConstant.swift */; };
+		83273184283ED262002A7422 /* DiaryRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273183283ED262002A7422 /* DiaryRequestModel.swift */; };
+		83273186283ED739002A7422 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273185283ED739002A7422 /* HomeViewModel.swift */; };
+		83273188283EF9AA002A7422 /* HomeViewController+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83273187283EF9AA002A7422 /* HomeViewController+Network.swift */; };
+		832788EE2842C97400E5A926 /* DiaryListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788ED2842C97400E5A926 /* DiaryListViewController+CollectionView.swift */; };
+		832788F22842D3DB00E5A926 /* WriteDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788F12842D3DB00E5A926 /* WriteDiaryViewModel.swift */; };
+		832788F42842F68B00E5A926 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788F32842F68A00E5A926 /* UIImageView+Extension.swift */; };
 		8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7472801CF1F00350621 /* AppDelegate.swift */; };
 		8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7492801CF1F00350621 /* SceneDelegate.swift */; };
 		8368D74C2801CF1F00350621 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D74B2801CF1F00350621 /* ViewController.swift */; };
@@ -48,8 +60,10 @@
 		83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A7F92804A29C00208FD8 /* HomeTopView.swift */; };
 		83D7CA7C280AD75700E49B8D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7CA7B280AD75700E49B8D /* WebViewController.swift */; };
 		83D7CA82280B321000E49B8D /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7CA81280B321000E49B8D /* WebViewModel.swift */; };
-		83D7E3572814037200D02E0C /* PopUpActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E3562814037200D02E0C /* PopUpActionDelegate.swift */; };
+		83D7E3572814037200D02E0C /* PopUpActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */; };
 		83D7E359281448F100D02E0C /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E358281448F100D02E0C /* Diary.swift */; };
+		83DE255E2840ABB400146E26 /* WriteDiaryRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE255D2840ABB400146E26 /* WriteDiaryRequestModel.swift */; };
+		83DE25622840C39C00146E26 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE25612840C39C00146E26 /* Recommendation.swift */; };
 		83DF9C20280463330042696B /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */; };
 		83DF9C2528046B4F0042696B /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C2428046B4F0042696B /* DiaryListViewController.swift */; };
 		83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF9C26280473FB0042696B /* HomeViewController.swift */; };
@@ -83,10 +97,22 @@
 		252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4829F18D7CEB857A3F1163E1 /* Pods-HaluEumpyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo/Pods-HaluEumpyo.debug.xcconfig"; sourceTree = "<group>"; };
 		7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		831FAFD028070D2D00040412 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		831FAFD228073DEB00040412 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		831FAFD428074F3400040412 /* ModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationController.swift; sourceTree = "<group>"; };
+		83273173283EC215002A7422 /* DiaryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryAPI.swift; sourceTree = "<group>"; };
+		83273176283EC3B4002A7422 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		83273178283EC3D2002A7422 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		8327317A283EC3FD002A7422 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		8327317C283EC40E002A7422 /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
+		8327317E283EC4E0002A7422 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		83273180283EC505002A7422 /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		83273183283ED262002A7422 /* DiaryRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRequestModel.swift; sourceTree = "<group>"; };
+		83273185283ED739002A7422 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		83273187283EF9AA002A7422 /* HomeViewController+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Network.swift"; sourceTree = "<group>"; };
+		832788ED2842C97400E5A926 /* DiaryListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryListViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		832788F12842D3DB00E5A926 /* WriteDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewModel.swift; sourceTree = "<group>"; };
+		832788F32842F68A00E5A926 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8368D7442801CF1F00350621 /* HaluEumpyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaluEumpyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D7472801CF1F00350621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8368D7492801CF1F00350621 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,8 +152,10 @@
 		83B2A7F92804A29C00208FD8 /* HomeTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopView.swift; sourceTree = "<group>"; };
 		83D7CA7B280AD75700E49B8D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		83D7CA81280B321000E49B8D /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
-		83D7E3562814037200D02E0C /* PopUpActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpActionDelegate.swift; sourceTree = "<group>"; };
+		83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpActionProtocol.swift; sourceTree = "<group>"; };
 		83D7E358281448F100D02E0C /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		83DE255D2840ABB400146E26 /* WriteDiaryRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryRequestModel.swift; sourceTree = "<group>"; };
+		83DE25612840C39C00146E26 /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		83DF9C1F280463330042696B /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		83DF9C2428046B4F0042696B /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		83DF9C26280473FB0042696B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -187,8 +215,69 @@
 			children = (
 				831FAFD028070D2D00040412 /* Content.swift */,
 				83D7E358281448F100D02E0C /* Diary.swift */,
+				83DE25612840C39C00146E26 /* Recommendation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		83273171283EC1EE002A7422 /* MoyaService */ = {
+			isa = PBXGroup;
+			children = (
+				83273175283EC314002A7422 /* Utils */,
+				83273172283EC201002A7422 /* Diary */,
+			);
+			path = MoyaService;
+			sourceTree = "<group>";
+		};
+		83273172283EC201002A7422 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				83273173283EC215002A7422 /* DiaryAPI.swift */,
+				8327317C283EC40E002A7422 /* DiaryService.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		83273175283EC314002A7422 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				83273176283EC3B4002A7422 /* GeneralResponse.swift */,
+				83273178283EC3D2002A7422 /* NetworkResult.swift */,
+				8327317A283EC3FD002A7422 /* MoyaLoggingPlugin.swift */,
+				8327317E283EC4E0002A7422 /* BaseTargetType.swift */,
+				83273180283EC505002A7422 /* URLConstant.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		83273182283ED254002A7422 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83273183283ED262002A7422 /* DiaryRequestModel.swift */,
+				83DE255D2840ABB400146E26 /* WriteDiaryRequestModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		833C1094283E7CE50086C34E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		83593348283EA27100F521F1 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		8359334D283EA50800F521F1 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		8368D73B2801CF1F00350621 = {
@@ -222,7 +311,6 @@
 				8368D7782801D3B700350621 /* Data */,
 				8368D7792801D3CC00350621 /* Domain */,
 				8368D77E2801D49E00350621 /* Extensions */,
-				8368D77A2801D3E300350621 /* Network */,
 				8368D77B2801D40800350621 /* Presentation */,
 				8368D77C2801D41300350621 /* Resources */,
 				8368D77D2801D42500350621 /* Util */,
@@ -264,6 +352,9 @@
 		8368D7782801D3B700350621 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				83273182283ED254002A7422 /* Model */,
+				8359334D283EA50800F521F1 /* Repositories */,
+				8368D77A2801D3E300350621 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -271,6 +362,8 @@
 		8368D7792801D3CC00350621 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				83593348283EA27100F521F1 /* UseCases */,
+				833C1094283E7CE50086C34E /* Repositories */,
 				831FAFCF28070D2100040412 /* Model */,
 			);
 			path = Domain;
@@ -279,6 +372,7 @@
 		8368D77A2801D3E300350621 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				83273171283EC1EE002A7422 /* MoyaService */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -307,9 +401,8 @@
 		8368D77D2801D42500350621 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				836B57C928112F6D00661746 /* Protocol */,
 				83930695280322130088F2C6 /* Font */,
-				83D7E3562814037200D02E0C /* PopUpActionDelegate.swift */,
+				83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -322,10 +415,10 @@
 				839306A42803290A0088F2C6 /* UIColor+Extension.swift */,
 				839306A628032D820088F2C6 /* UIView+Extension.swift */,
 				839306A828032DEC0088F2C6 /* Date+Extension.swift */,
-				831FAFCD28070AA600040412 /* UICollectionView+Extension.swift */,
 				831FAFD428074F3400040412 /* ModalPresentationController.swift */,
 				83E329A028085922000A5786 /* CALayer+Extensions.swift */,
 				8372F4C7280DFA540095AE29 /* UILabel+Extension.swift */,
+				832788F32842F68A00E5A926 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -357,6 +450,7 @@
 				83A115F028087C6700C20428 /* View */,
 				83A115EE28087C6300C20428 /* WriteDiaryViewController.swift */,
 				8371B4E2280A1E7100A96D55 /* DiaryViewController.swift */,
+				832788F12842D3DB00E5A926 /* WriteDiaryViewModel.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -385,13 +479,6 @@
 				83F2917B2814EBE800638459 /* SettingViewController.swift */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		836B57C928112F6D00661746 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		83930695280322130088F2C6 /* Font */ = {
@@ -426,6 +513,8 @@
 		83B2A7F82804A1F800208FD8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				83273185283ED739002A7422 /* HomeViewModel.swift */,
+				83273187283EF9AA002A7422 /* HomeViewController+Network.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -476,6 +565,7 @@
 			children = (
 				83DF9C23280463A80042696B /* Cell */,
 				83DF9C2428046B4F0042696B /* DiaryListViewController.swift */,
+				832788ED2842C97400E5A926 /* DiaryListViewController+CollectionView.swift */,
 				831FAFD228073DEB00040412 /* DatePickerViewController.swift */,
 			);
 			path = View;
@@ -763,25 +853,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				831FAFCE28070AA600040412 /* UICollectionView+Extension.swift in Sources */,
+				83273188283EF9AA002A7422 /* HomeViewController+Network.swift in Sources */,
 				83F600A32812FF2E009E1092 /* CalendarCell.swift in Sources */,
 				83D7CA7C280AD75700E49B8D /* WebViewController.swift in Sources */,
+				8327317B283EC3FD002A7422 /* MoyaLoggingPlugin.swift in Sources */,
 				839306A52803290A0088F2C6 /* UIColor+Extension.swift in Sources */,
 				83D7CA82280B321000E49B8D /* WebViewModel.swift in Sources */,
 				8371B4E12809FD8B00A96D55 /* WriteDiaryTopView.swift in Sources */,
+				83273184283ED262002A7422 /* DiaryRequestModel.swift in Sources */,
 				8397E5E62805C7A700EA2EAF /* ImageLiteral.swift in Sources */,
 				839306A3280328FA0088F2C6 /* UIFont+Extension.swift in Sources */,
+				83DE25622840C39C00146E26 /* Recommendation.swift in Sources */,
+				832788F42842F68B00E5A926 /* UIImageView+Extension.swift in Sources */,
 				839306A728032D820088F2C6 /* UIView+Extension.swift in Sources */,
+				83273174283EC215002A7422 /* DiaryAPI.swift in Sources */,
 				8368D74C2801CF1F00350621 /* ViewController.swift in Sources */,
 				83DF9C2528046B4F0042696B /* DiaryListViewController.swift in Sources */,
 				83E329A128085922000A5786 /* CALayer+Extensions.swift in Sources */,
 				839306912802DD400088F2C6 /* BaseViewController.swift in Sources */,
 				83DF9C20280463330042696B /* BaseCollectionViewCell.swift in Sources */,
+				832788EE2842C97400E5A926 /* DiaryListViewController+CollectionView.swift in Sources */,
 				8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */,
+				83273179283EC3D2002A7422 /* NetworkResult.swift in Sources */,
 				8397E5E428059F5200EA2EAF /* DiaryListCollectionViewCell.swift in Sources */,
 				83F2917C2814EBE800638459 /* SettingViewController.swift in Sources */,
 				83A115EF28087C6300C20428 /* WriteDiaryViewController.swift in Sources */,
+				8327317F283EC4E0002A7422 /* BaseTargetType.swift in Sources */,
+				832788F22842D3DB00E5A926 /* WriteDiaryViewModel.swift in Sources */,
 				83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */,
+				83273186283ED739002A7422 /* HomeViewModel.swift in Sources */,
 				839306A1280328D50088F2C6 /* UIViewController+Rx.swift in Sources */,
 				83E329A328085F92000A5786 /* DiaryListViewModel.swift in Sources */,
 				831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */,
@@ -789,6 +889,8 @@
 				83D7E359281448F100D02E0C /* Diary.swift in Sources */,
 				831FAFD128070D2D00040412 /* Content.swift in Sources */,
 				8372F4C2280D96DF0095AE29 /* CustomActivityIndicator.swift in Sources */,
+				83273177283EC3B4002A7422 /* GeneralResponse.swift in Sources */,
+				83DE255E2840ABB400146E26 /* WriteDiaryRequestModel.swift in Sources */,
 				8372F4C8280DFA540095AE29 /* UILabel+Extension.swift in Sources */,
 				8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */,
 				831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */,
@@ -796,9 +898,11 @@
 				8372F4C4280D98DC0095AE29 /* RecommendMusicViewContorller.swift in Sources */,
 				839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */,
 				83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */,
-				83D7E3572814037200D02E0C /* PopUpActionDelegate.swift in Sources */,
+				83D7E3572814037200D02E0C /* PopUpActionProtocol.swift in Sources */,
+				8327317D283EC40E002A7422 /* DiaryService.swift in Sources */,
 				836B57CD2811A73B00661746 /* FeedBackPopUpViewController.swift in Sources */,
 				8397E5E228056F5D00EA2EAF /* AppDate.swift in Sources */,
+				83273181283EC505002A7422 /* URLConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ target 'HaluEumpyo' do
   pod 'Then'
   pod 'Kingfisher'
   pod 'FSCalendar'
+  pod 'Moya', '~> 15.0'
 
   target 'HaluEumpyoTests' do
     inherit! :search_paths

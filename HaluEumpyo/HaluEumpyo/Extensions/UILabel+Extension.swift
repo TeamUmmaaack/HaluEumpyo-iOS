@@ -23,11 +23,10 @@ extension UILabel {
             let attrString = NSAttributedString(string: text,
                                                 attributes: attributes)
             self.attributedText = attrString
-       
         }
     }
     
-     func setTextWithLineHeight(text: String?, lineHeight: CGFloat){
+     func setTextWithLineHeight(text: String?, lineHeight: CGFloat) {
         if let text = text {
             let style = NSMutableParagraphStyle()
             style.maximumLineHeight = lineHeight
