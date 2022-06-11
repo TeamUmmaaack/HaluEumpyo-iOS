@@ -30,7 +30,7 @@ class DiaryViewController: BaseViewController {
     }
     
     private let contentTextView = UITextView().then {
-        $0.font = .pretendard(size: 15)
+        $0.font = .pretendard(.regular, size: 15)
         $0.textColor = UIColor.haluEmpyo_black()
         $0.isEditable = false
     }
@@ -78,19 +78,18 @@ class DiaryViewController: BaseViewController {
         bind()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         recommendMusicContainerView.addGestureRecognizer(tapGesture)
+        configure(from: diary)
         let style = NSMutableParagraphStyle()
         let fontSize: CGFloat = 15
-        let lineheight = fontSize * 1.6  //font size * multiple
+        let lineheight = fontSize * 1.4  //font size * multiple
         style.minimumLineHeight = lineheight
         style.maximumLineHeight = lineheight
-
         contentTextView.attributedText = NSAttributedString(
             string: contentTextView.text,
           attributes: [
             .paragraphStyle: style
           ])
         contentTextView.font = .pretendard(.regular, size: fontSize)
-        configure(from: diary)
     }
     
     override func configUI() {
@@ -153,12 +152,12 @@ class DiaryViewController: BaseViewController {
         songTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(17)
             $0.leading.equalTo(albumCoverImageView.snp.trailing).offset(15)
-            $0.trailing.lessThanOrEqualToSuperview().offset(30)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-12)
         }
         
         artistLabel.snp.makeConstraints {
             $0.leading.equalTo(albumCoverImageView.snp.trailing).offset(15)
-            $0.trailing.lessThanOrEqualToSuperview().offset(12)
+            $0.trailing.lessThanOrEqualToSuperview().offset(-12)
             $0.bottom.equalToSuperview().offset(-17)
         }
         
