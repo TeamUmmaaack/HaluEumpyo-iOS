@@ -13,7 +13,6 @@ extension HomeViewController {
         DiaryService.shared.getMonthlyDiaryById { [weak self] response in
             switch response {
             case .success(let data):
-                print("데이터: ", data)
                 guard let data = data as? [Diary] else { return }
                 self?.scheduleItems = data
                 self?.parseSchedules()
@@ -32,12 +31,12 @@ extension HomeViewController {
     public func parseSchedules() {        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Date.FormatType.calendar.description
+        dateFormatter.locale = Locale(identifier:"ko_KR")
         let items = scheduleItems.map { [dateFormatter.date(from: $0.createdAt) as Any, $0.emotionID ?? 7] }
         
         for (index, item) in items.enumerated() {
             guard let scheduleDate = item[0] as? Date else { return }
             guard let emotion = item[1] as? Int else { return }
-            print("감정 번호: \(emotion)")
             
             if emotion == 1 {
                 let key = Attributes(date: scheduleDate.toString(of: .year), emotion: .joy)

@@ -78,6 +78,7 @@ final class DiaryListViewController: BaseViewController {
         super.configUI()
         view.backgroundColor = UIColor.haluEumpyo_background()
         setupNavigationBar()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true 
     }
     
     override func setUpLayoutConstraint() {
