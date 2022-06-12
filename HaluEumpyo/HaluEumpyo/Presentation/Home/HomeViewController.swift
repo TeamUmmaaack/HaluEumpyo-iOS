@@ -243,8 +243,8 @@ extension HomeViewController: FSCalendarDataSource {
         
         var filledType = FilledType.none
         let selectedType = SelectedType.not
-        let width: CGFloat = 32
-        let yPosition: CGFloat = 2
+        let width: CGFloat = 32.0
+        let yPosition: CGFloat = 2.0
         let formattedDate = date.toString(of: .year)
         
         if joyList.contains(formattedDate) {
