@@ -19,6 +19,7 @@ final class WriteDiaryViewController: BaseViewController {
     private let topView = WriteDiaryTopView()
     var currentDate: AppDate?
     private var writeDiaryRequest = WriteDiaryRequestModel(content: "")
+    private var isModalOn:Bool = false
     
     private let contextView = UIView().then {
         $0.backgroundColor = UIColor.white
@@ -46,6 +47,7 @@ final class WriteDiaryViewController: BaseViewController {
         super.viewDidLoad()
         setInitialDate()
         bind()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func configUI() {
@@ -55,6 +57,9 @@ final class WriteDiaryViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {       self.view.endEditing(true)
     }
     
     private func setInitialDate() {
@@ -78,7 +83,10 @@ final class WriteDiaryViewController: BaseViewController {
         topView.rightButton.rx.tap
             .bind(onNext: { [weak self] in
                 CustomActivityIndicator.shared.show()
-                self?.postDiary()
+                DispatchQueue.main.asyncAfter(deadline: .now()+3.0 ) {
+                    CustomActivityIndicator.shared.hide()
+                    self?.postDiary()
+                }
             })
             .disposed(by: disposeBag)
         
@@ -167,15 +175,13 @@ extension WriteDiaryViewController: UIViewControllerTransitioningDelegate {
 extension WriteDiaryViewController {
     func postDiary() {
         writeDiaryRequest.content = contentTextView.text
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.5 ) {
-            CustomActivityIndicator.shared.hide()
-        }
+        self.isModalOn = false
         DiaryService.shared.postDiary(parameter: writeDiaryRequest) { (response) in
             switch response {
             case .success(let data):
                 if let data = data as? [Recommendation] {
                     let recommendMusicViewController = RecommendMusicViewController(recommendModel: data[0])
-                    self.navigationController?.pushViewController(recommendMusicViewController, animated: true)
+                        self.navigationController?.pushViewController(recommendMusicViewController, animated: true)
                 }
             case .requestErr(let message):
                 print(message)
