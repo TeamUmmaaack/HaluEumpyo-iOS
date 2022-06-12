@@ -41,7 +41,7 @@ extension Date {
             case .time:
                 return "a h:mm"
             case .calendar:
-                return "yyyy-MM-dd E HH:mm"
+                return "yyyy-MM-dd EEEEE HH:mm"
             case .calendarTime:
                 return "a HH:mm"
             }
