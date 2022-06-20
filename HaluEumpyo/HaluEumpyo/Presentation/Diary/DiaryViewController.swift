@@ -95,10 +95,16 @@ class DiaryViewController: BaseViewController {
     override func configUI() {
         view.backgroundColor = .white
         setupNavigationBar()
+        setupNavigationBackSwipeMotion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK: - allow naviation back swipe
+    func setupNavigationBackSwipeMotion() {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     // MARK: - init
@@ -139,7 +145,7 @@ class DiaryViewController: BaseViewController {
             $0.width.equalTo(336)
             $0.height.equalTo(90)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-20)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         albumCoverImageView.snp.makeConstraints {
