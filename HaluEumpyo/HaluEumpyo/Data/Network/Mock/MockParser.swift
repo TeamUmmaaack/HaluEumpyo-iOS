@@ -8,7 +8,7 @@
 import Foundation
 
 final class MockParser {
-    static func load<T: Decodable>(_ type: T.Type, from resourceName: String) -> BaseModel<T>? {
+    static func load<T: Decodable>(_ type: T.Type, from resourceName: String) -> GeneralResponse<T>? {
         // type: 디코딩 할 때 사용되는 모델의 타입
         // resourceName: json 파일 네임
         guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else {
@@ -22,6 +22,6 @@ final class MockParser {
             return nil
         }
         guard let decodable = try? JSONSerialization.data(withJSONObject: jsonObject) else { return nil }
-        return try? JSONDecoder().decode(BaseModel<T>.self, from: decodable)
+        return try? JSONDecoder().decode(GeneralResponse<T>.self, from: decodable)
     }
 }
