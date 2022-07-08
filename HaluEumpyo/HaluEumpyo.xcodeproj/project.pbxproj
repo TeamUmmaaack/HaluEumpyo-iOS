@@ -58,6 +58,8 @@
 		839D71D228052DA4005D7C48 /* DrawerCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D71D128052DA4005D7C48 /* DrawerCollectionReusableView.swift */; };
 		83A115EF28087C6300C20428 /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A115EE28087C6300C20428 /* WriteDiaryViewController.swift */; };
 		83B2A7FA2804A29C00208FD8 /* HomeTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B2A7F92804A29C00208FD8 /* HomeTopView.swift */; };
+		83D15475287722ED00D7B911 /* entire_diary.json in Resources */ = {isa = PBXBuildFile; fileRef = 83D15474287722ED00D7B911 /* entire_diary.json */; };
+		83D154772877232800D7B911 /* MockParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D154762877232800D7B911 /* MockParser.swift */; };
 		83D7CA7C280AD75700E49B8D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7CA7B280AD75700E49B8D /* WebViewController.swift */; };
 		83D7CA82280B321000E49B8D /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7CA81280B321000E49B8D /* WebViewModel.swift */; };
 		83D7E3572814037200D02E0C /* PopUpActionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */; };
@@ -150,6 +152,8 @@
 		839D71D128052DA4005D7C48 /* DrawerCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerCollectionReusableView.swift; sourceTree = "<group>"; };
 		83A115EE28087C6300C20428 /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 		83B2A7F92804A29C00208FD8 /* HomeTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopView.swift; sourceTree = "<group>"; };
+		83D15474287722ED00D7B911 /* entire_diary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entire_diary.json; sourceTree = "<group>"; };
+		83D154762877232800D7B911 /* MockParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockParser.swift; sourceTree = "<group>"; };
 		83D7CA7B280AD75700E49B8D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		83D7CA81280B321000E49B8D /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		83D7E3562814037200D02E0C /* PopUpActionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpActionProtocol.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 		8368D77A2801D3E300350621 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				83D154732877229C00D7B911 /* Mock */,
 				83273171283EC1EE002A7422 /* MoyaService */,
 			);
 			path = Network;
@@ -517,6 +522,15 @@
 				83273185283ED739002A7422 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83D154732877229C00D7B911 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				83D15474287722ED00D7B911 /* entire_diary.json */,
+				83D154762877232800D7B911 /* MockParser.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		83D7CA7A280AD1B800E49B8D /* WebView */ = {
@@ -704,6 +718,7 @@
 				8393069B280322D50088F2C6 /* Pretendard-Bold.otf in Resources */,
 				8368D7542801CF2100350621 /* LaunchScreen.storyboard in Resources */,
 				8393069C280322D50088F2C6 /* Pretendard-SemiBold.otf in Resources */,
+				83D15475287722ED00D7B911 /* entire_diary.json in Resources */,
 				8393069D280322D50088F2C6 /* Pretendard-Light.otf in Resources */,
 				8393069E280322D50088F2C6 /* Pretendard-Regular.otf in Resources */,
 				8368D7512801CF2100350621 /* Assets.xcassets in Resources */,
@@ -901,6 +916,7 @@
 				83D7E3572814037200D02E0C /* PopUpActionProtocol.swift in Sources */,
 				8327317D283EC40E002A7422 /* DiaryService.swift in Sources */,
 				836B57CD2811A73B00661746 /* FeedBackPopUpViewController.swift in Sources */,
+				83D154772877232800D7B911 /* MockParser.swift in Sources */,
 				8397E5E228056F5D00EA2EAF /* AppDate.swift in Sources */,
 				83273181283EC505002A7422 /* URLConstant.swift in Sources */,
 			);

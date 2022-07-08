@@ -28,10 +28,17 @@ extension HomeViewController {
         }
     }
     
+    public func getMockDiaries() {
+        let loadedData = MockParser.load([Diary].self, from: "entire_diary")
+        guard let data = loadedData?.data else { return }
+        self.scheduleItems = data
+        self.parseSchedules()
+    }
+    
     public func parseSchedules() {        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Date.FormatType.calendar.description
-        dateFormatter.locale = Locale(identifier:"ko_KR")
+        dateFormatter.locale = Locale(identifier: "ko_KR")
         let items = scheduleItems.map { [dateFormatter.date(from: $0.createdAt) as Any, $0.emotionID ?? 7] }
         
         for (index, item) in items.enumerated() {

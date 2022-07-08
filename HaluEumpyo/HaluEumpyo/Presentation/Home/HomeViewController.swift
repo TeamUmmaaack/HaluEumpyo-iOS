@@ -95,7 +95,8 @@ final class HomeViewController: BaseViewController {
         self.scaredList = []
         self.sosoList = []
         setupBarHidden()
-        getDiaries()
+//        getDiaries()
+        getMockDiaries()
     }
     private func setupBarHidden() {
         navigationController?.setNavigationBarHidden(true, animated: false)

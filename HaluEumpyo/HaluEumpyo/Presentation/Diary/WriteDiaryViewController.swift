@@ -19,7 +19,6 @@ final class WriteDiaryViewController: BaseViewController {
     private let topView = WriteDiaryTopView()
     var currentDate: AppDate?
     private var writeDiaryRequest = WriteDiaryRequestModel(content: "")
-    private var isModalOn:Bool = false
     
     private let contextView = UIView().then {
         $0.backgroundColor = UIColor.white
@@ -47,6 +46,7 @@ final class WriteDiaryViewController: BaseViewController {
         super.viewDidLoad()
         setInitialDate()
         bind()
+        setup()
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
@@ -60,6 +60,34 @@ final class WriteDiaryViewController: BaseViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {       self.view.endEditing(true)
+    }
+    
+    // MARK: - Functions
+    
+    private func setup() {
+        setInitialDate()
+        setupKeyboardHiding()
+    }
+    
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let userInfo = sender.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        let textViewOffset = -(keyboardHeight + 20)
+        contentTextView.snp.updateConstraints {
+            $0.bottom.equalToSuperview().offset(textViewOffset)
+        }
+    }
+    
+    @objc func keyboardWillHide(sender: NSNotification) {
+        contentTextView.snp.updateConstraints {
+            $0.bottom.equalToSuperview()
+        }
     }
     
     private func setInitialDate() {
@@ -118,7 +146,6 @@ final class WriteDiaryViewController: BaseViewController {
             .asDriver()
             .drive(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
-//                self?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         
@@ -175,7 +202,6 @@ extension WriteDiaryViewController: UIViewControllerTransitioningDelegate {
 extension WriteDiaryViewController {
     func postDiary() {
         writeDiaryRequest.content = contentTextView.text
-        self.isModalOn = false
         DiaryService.shared.postDiary(parameter: writeDiaryRequest) { (response) in
             switch response {
             case .success(let data):
