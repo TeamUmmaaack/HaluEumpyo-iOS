@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01A8996A4E2401E81C3C8980 /* Pods_HaluEumpyoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */; };
 		12E5CD6E003F5782BE772AAF /* Pods_HaluEumpyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */; };
+		830861AD2880662A00771BA5 /* DiaryItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830861AC2880662A00771BA5 /* DiaryItemViewModel.swift */; };
 		831FAFD128070D2D00040412 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD028070D2D00040412 /* Content.swift */; };
 		831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD228073DEB00040412 /* DatePickerViewController.swift */; };
 		831FAFD528074F3400040412 /* ModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831FAFD428074F3400040412 /* ModalPresentationController.swift */; };
@@ -97,6 +98,7 @@
 		252E4EBB32ED4862ADB62328 /* Pods_HaluEumpyo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4829F18D7CEB857A3F1163E1 /* Pods-HaluEumpyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaluEumpyo.debug.xcconfig"; path = "Target Support Files/Pods-HaluEumpyo/Pods-HaluEumpyo.debug.xcconfig"; sourceTree = "<group>"; };
 		7E5A9C6298A7E8179530CA43 /* Pods_HaluEumpyoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HaluEumpyoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		830861AC2880662A00771BA5 /* DiaryItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryItemViewModel.swift; sourceTree = "<group>"; };
 		831FAFD028070D2D00040412 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		831FAFD228073DEB00040412 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		831FAFD428074F3400040412 /* ModalPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationController.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+				830861AC2880662A00771BA5 /* DiaryItemViewModel.swift */,
 		831FAFCF28070D2100040412 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +451,7 @@
 		8368D7812801D81200350621 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				830861AE288066AB00771BA5 /* ViewModels */,
 				83A115F028087C6700C20428 /* View */,
 				83A115EE28087C6300C20428 /* WriteDiaryViewController.swift */,
 				8371B4E2280A1E7100A96D55 /* DiaryViewController.swift */,
@@ -895,6 +899,7 @@
 				8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */,
 				831FAFD328073DEC00040412 /* DatePickerViewController.swift in Sources */,
 				8371B4E3280A1E7100A96D55 /* DiaryViewController.swift in Sources */,
+				830861AD2880662A00771BA5 /* DiaryItemViewModel.swift in Sources */,
 				8372F4C4280D98DC0095AE29 /* RecommendMusicViewContorller.swift in Sources */,
 				839306A928032DEC0088F2C6 /* Date+Extension.swift in Sources */,
 				83DF9C27280473FB0042696B /* HomeViewController.swift in Sources */,
