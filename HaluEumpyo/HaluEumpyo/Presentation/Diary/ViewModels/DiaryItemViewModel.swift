@@ -14,4 +14,15 @@ final class DiaryItemViewModel   {
         self.diary = diary
         self.locale = locale
     }
+    
+    // MARK: - function
+    
+    func setDate(locale: String, date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: locale)
+        dateFormatter.dateFormat = Date.FormatType.calendar.description
+        let convertedDate = dateFormatter.date(from: date)
+        guard let string = convertedDate?.toString(of: .day) else { return "" }
+        return string
+    }
 }
