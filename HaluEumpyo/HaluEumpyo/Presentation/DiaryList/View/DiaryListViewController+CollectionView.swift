@@ -22,7 +22,8 @@ extension DiaryListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = indexPath.item
-        let diaryViewController = DiaryViewController(diary: diaries[item], locale: "en_US")
+//        let diaryViewController = DiaryViewController(diary: diaries[item], locale: "en_US")
+        let diaryViewController = DiaryViewController(with: DiaryItemViewModel(with: diaries[item], locale: "en_US"))
         navigationController?.pushViewController(diaryViewController, animated: true)
     }
 }

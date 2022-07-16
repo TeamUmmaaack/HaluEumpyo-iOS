@@ -280,19 +280,20 @@ extension HomeViewController: FSCalendarDelegateAppearance {
         
         if joyList.contains(selectedDate) {
             guard let content = findDiary(.joy, date: selectedDate) else { return }
-            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+//            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            let diaryViewController = DiaryViewController(with: DiaryItemViewModel(with: content, locale: "ko_KR"))
             self.navigationController?.pushViewController(diaryViewController, animated: true)
         } else if sadList.contains(selectedDate) {
             guard let content = findDiary(.sadness, date: selectedDate) else { return }
-            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            let diaryViewController = DiaryViewController(with: DiaryItemViewModel(with: content, locale: "ko_KR"))
             self.navigationController?.pushViewController(diaryViewController, animated: true)
         } else if angryList.contains(selectedDate) {
             guard let content = findDiary(.angry, date: selectedDate) else { return }
-            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            let diaryViewController = DiaryViewController(with: DiaryItemViewModel(with: content, locale: "ko_KR"))
             self.navigationController?.pushViewController(diaryViewController, animated: true)
         } else if sosoList.contains(selectedDate) {
             guard let content = findDiary(.soso, date: selectedDate) else { return }
-            let diaryViewController = DiaryViewController(diary: content, locale: "ko_KR")
+            let diaryViewController = DiaryViewController(with: DiaryItemViewModel(with: content, locale: "ko_KR"))
             self.navigationController?.pushViewController(diaryViewController, animated: true)
         } else if self.gregorian.isDateInToday(date) {
             let writeDiaryViewController = WriteDiaryViewController()
