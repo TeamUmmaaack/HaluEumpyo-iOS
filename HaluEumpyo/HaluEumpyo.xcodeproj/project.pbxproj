@@ -212,7 +212,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		830861AE288066AB00771BA5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
 				830861AC2880662A00771BA5 /* DiaryItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		831FAFCF28070D2100040412 /* Model */ = {
 			isa = PBXGroup;
 			children = (

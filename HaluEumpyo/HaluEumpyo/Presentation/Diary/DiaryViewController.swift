@@ -15,8 +15,7 @@ class DiaryViewController: BaseViewController {
     private var songTitle: String?
     private var artistName: String?
     
-    private let diary: Diary
-    private let locale: String
+    private var viewModel: DiaryItemViewModel!
     
     private let backButton = UIButton().then {
         $0.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
@@ -73,12 +72,13 @@ class DiaryViewController: BaseViewController {
     }
     
     // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        configure()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         recommendMusicContainerView.addGestureRecognizer(tapGesture)
-        configure(from: diary)
         let style = NSMutableParagraphStyle()
         let fontSize: CGFloat = 15
         let lineheight = fontSize * 1.4  //font size * multiple
@@ -108,9 +108,8 @@ class DiaryViewController: BaseViewController {
     }
     
     // MARK: - init
-    init(diary: Diary, locale: String) {
-        self.diary = diary
-        self.locale = locale
+    init(with viewModel: DiaryItemViewModel) {
+        self.viewModel = viewModel
         super.init()
     }
     
@@ -177,7 +176,7 @@ class DiaryViewController: BaseViewController {
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
         print("클릭됨")
-        let urlString = diary.url
+        let urlString = viewModel.diary.url
         let webViewController = WebViewController(urlString: "\(urlString)")
         self.navigationController?.pushViewController(webViewController, animated: true)
     }
@@ -190,8 +189,8 @@ class DiaryViewController: BaseViewController {
     }
     
     // MARK: - func
-    private func configure(from diary: Diary) {
-        switch diary.emotionID {
+    private func configure() {
+        switch viewModel.diary.emotionID {
         case 1:
             noteImageView.image = ImageLiteral.imgEmotionJoy
         case 2:
@@ -209,24 +208,18 @@ class DiaryViewController: BaseViewController {
         default:
             noteImageView.image = ImageLiteral.imgEmotionJoy
         }
-        contentTextView.text = diary.content
-        songTitleLabel.text = diary.title
-        artistLabel.text = diary.singer
-        let text = setDate(locale: locale, date: diary.createdAt)
+        contentTextView.text = viewModel.diary.content
+        songTitleLabel.text = viewModel.diary.title
+        artistLabel.text = viewModel.diary.singer
+        let text = viewModel.setDate(locale: viewModel.locale, date: viewModel.diary.createdAt)
         dateLabel.text = text.components(separatedBy: "-")[0]
         dayLabel.text = text.components(separatedBy: "-")[1]
-        let url = URL(string: diary.cover)
+        let url = URL(string: viewModel.diary.cover)
         albumCoverImageView.kf.setImage(with: url)
     }
     
-    private func setDate(locale: String, date: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: locale)
-        dateFormatter.dateFormat = Date.FormatType.calendar.description
-        let convertedDate = dateFormatter.date(from: date)
-        guard let string = convertedDate?.toString(of: .day) else { return "" }
-        return string
-    }
+
+    
     
     private func bind() {
         backButton.rx.tap
