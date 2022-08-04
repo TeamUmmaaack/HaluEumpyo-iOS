@@ -29,9 +29,8 @@ final class HomeViewModel {
     func transform(input: Input) -> Output {
         let diary = input.viewWillAppear.flatMap {
             return self.diaryUseCase.diaries()
-        }
+        }.asDriver(onErrorJustReturn: [])
         
         return Output(diary: diary)
     }
-    
 }
