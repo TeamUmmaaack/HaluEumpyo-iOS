@@ -77,6 +77,9 @@ final class HomeViewController: BaseViewController {
         return view
     }()
     
+    // MARK: - Properties
+    private let viewModel = HomeViewModel(diaryUseCase: DefaultFetchDiaryUseCase(repository: DiaryMockRepository()))
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -89,14 +92,14 @@ final class HomeViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setupBarHidden()
         self.joyList = []
         self.sadList = []
         self.angryList = []
         self.scaredList = []
         self.sosoList = []
-        setupBarHidden()
 //        getDiaries()
-        getMockDiaries()
+//        getMockDiaries()
     }
     private func setupBarHidden() {
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -151,6 +154,15 @@ final class HomeViewController: BaseViewController {
     }
     
     private func bind() {
+        let input = HomeViewModel.Input(viewWillAppear: rx.viewWillAppear.map { _ in })
+        let output = viewModel.transform(input: input)
+        
+        output.diary.drive(onNext: { [weak self] data in
+            guard let self = self else { return }
+            self.scheduleItems = data
+            self.parseSchedules()
+        }).disposed(by: disposeBag)
+        
         topView.leftButton.rx.tap
             .bind(onNext: { [weak self] in
                 let diaryListViewController = DiaryListViewController()
