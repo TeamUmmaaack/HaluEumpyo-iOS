@@ -26,6 +26,7 @@
 		832788EE2842C97400E5A926 /* DiaryListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788ED2842C97400E5A926 /* DiaryListViewController+CollectionView.swift */; };
 		832788F22842D3DB00E5A926 /* WriteDiaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788F12842D3DB00E5A926 /* WriteDiaryViewModel.swift */; };
 		832788F42842F68B00E5A926 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832788F32842F68A00E5A926 /* UIImageView+Extension.swift */; };
+		83681ABA288D94FA00678B2C /* DiaryMockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83681AB9288D94FA00678B2C /* DiaryMockRepository.swift */; };
 		8368D7482801CF1F00350621 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7472801CF1F00350621 /* AppDelegate.swift */; };
 		8368D74A2801CF1F00350621 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D7492801CF1F00350621 /* SceneDelegate.swift */; };
 		8368D74C2801CF1F00350621 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368D74B2801CF1F00350621 /* ViewController.swift */; };
@@ -119,6 +120,7 @@
 		832788ED2842C97400E5A926 /* DiaryListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		832788F12842D3DB00E5A926 /* WriteDiaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewModel.swift; sourceTree = "<group>"; };
 		832788F32842F68A00E5A926 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		83681AB9288D94FA00678B2C /* DiaryMockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryMockRepository.swift; sourceTree = "<group>"; };
 		8368D7442801CF1F00350621 /* HaluEumpyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaluEumpyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8368D7472801CF1F00350621 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8368D7492801CF1F00350621 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		8359334D283EA50800F521F1 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				83681AB9288D94FA00678B2C /* DiaryMockRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 			files = (
 				83273188283EF9AA002A7422 /* HomeViewController+Network.swift in Sources */,
 				83F600A32812FF2E009E1092 /* CalendarCell.swift in Sources */,
+				83681ABA288D94FA00678B2C /* DiaryMockRepository.swift in Sources */,
 				83D7CA7C280AD75700E49B8D /* WebViewController.swift in Sources */,
 				8327317B283EC3FD002A7422 /* MoyaLoggingPlugin.swift in Sources */,
 				839306A52803290A0088F2C6 /* UIColor+Extension.swift in Sources */,
